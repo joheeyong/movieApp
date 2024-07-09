@@ -12,6 +12,18 @@ class APIInterface {
         Uri.parse('${Var.baseUrl}/trending/all/week?api_key=${Var.apiKey}'));
     var body = jsonDecode(utf8.decode(result.bodyBytes));
 
+    print('${Var.baseUrl}/trending/all/week?api_key=${Var.apiKey}');
+
+    return Movie.fromJson(body);
+  }
+
+  Future<Movie> getDiscover() async {
+    var result = await http.get(
+        Uri.parse('${Var.baseUrl}/discover/movie?api_key=${Var.apiKey}'));
+    var body = jsonDecode(utf8.decode(result.bodyBytes));
+
+    print('${Var.baseUrl}/discover/movie?api_key=${Var.apiKey}');
+
     return Movie.fromJson(body);
   }
 }
