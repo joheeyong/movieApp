@@ -1,8 +1,12 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:examproject1/viewModel/homeViewModel.dart';
 import 'package:examproject1/widgets/discoverWidget.dart';
 import 'package:examproject1/widgets/movieBox.dart';
 import 'package:examproject1/widgets/trandWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import 'model/movie.dart';
 
@@ -25,7 +29,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black, brightness: Brightness.dark),
+        scaffoldBackgroundColor: Colors.black,
+        brightness: Brightness.dark,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.black,
+          brightness: Brightness.dark,
+        ),
+        appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.black,
+            systemOverlayStyle: SystemUiOverlayStyle(
+                statusBarColor: Colors.transparent,
+                statusBarIconBrightness: Brightness.dark,
+                statusBarBrightness: Brightness.dark)),
         useMaterial3: true,
       ),
       home: const MyHomePage(),
@@ -42,54 +57,71 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   double scrollOffset = 0.0;
+  Color _appBarColor = Colors.transparent;
   late final ScrollController mainScrollController = ScrollController()
     ..addListener(() {
       setState(() {
         scrollOffset = mainScrollController.offset;
+        if (scrollOffset > 100) {
+          _appBarColor = Colors.black38;
+        } else {
+          _appBarColor = Colors.transparent;
+        }
       });
     });
-
 
   @override
   void initState() {
     super.initState();
     context.read<HomeViewModel>().callDiscover();
-    context.read<HomeViewModel>().callTrending();
+    context.read<HomeViewModel>().trendingAllWeek();
+    context.read<HomeViewModel>().trendingMovieDay();
+    context.read<HomeViewModel>().trendingMovieWeek();
+    context.read<HomeViewModel>().trendingTVDay();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true, //Title text 가운데 정렬
-          title: const Text("넷플릭스"),
-          backgroundColor: Colors.transparent, //appBar 투명색
-          // shadowColor: Colors.black,
-          elevation: 0,//appBar 그림자 농도 설정 (값 0으로 제거)
+      appBar: AppBar(
+        toolbarHeight: 0,
+        backgroundColor: _appBarColor,
+        surfaceTintColor: Colors.black,
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(72),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset(
+                'assets/netflixIcon.png',
+                height: 72.0,
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                      onPressed: () {}, icon: const Icon(LucideIcons.cast)),
+                  IconButton(
+                      onPressed: () {}, icon: const Icon(LucideIcons.search)),
+                ],
+              )
+            ],
+          ),
         ),
-        extendBodyBehindAppBar: true, //body 위에 appbar
+      ),
+      extendBodyBehindAppBar: true, //body 위에 appbar
       body: CustomScrollView(
         physics: const ClampingScrollPhysics(),
         controller: mainScrollController,
-        slivers: const [
-          // SliverAppBar(
-          //   expandedHeight: 200.0,
-          //   floating: false,
-          //   pinned: true,
-          //   flexibleSpace: FlexibleSpaceBar(
-          //     title: Text('투명 앱바'),
-          //
-          //   ),
-          //   // backgroundColor: Colors.black.withOpacity(appBarOpacity),
-          // ),
+        slivers: [
           SliverList(
             delegate: SliverChildListDelegate.fixed([
               DiscoverWidget(),
-              TrandWidget(),
-              TrandWidget(),
-              TrandWidget(),
-              TrandWidget(),
-              TrandWidget(),
+              TrandWidget("allWeek"),
+              TrandWidget("movieDay"),
+              TrandWidget("movieWeek"),
+              TrandWidget("TVDay"),
             ]),
           ),
         ],

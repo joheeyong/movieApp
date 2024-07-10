@@ -6,18 +6,37 @@ import 'package:flutter/material.dart';
 
 class HomeViewModel extends ChangeNotifier {
 
-  Movie? movieTrend;
-
   Movie? movieDiscover;
+  Movie? movieAllWeek;
+  Movie? movieMovieDay;
+  Movie? movieMovieWeek;
+  Movie? movieTVDay;
 
-  callTrending() async {
-   movieTrend = await APIInterface().getTrending();
-   notifyListeners();
-  }
 
   callDiscover() async {
     movieDiscover = await APIInterface().getDiscover();
     notifyListeners();
   }
+
+  trendingAllWeek() async {
+    movieAllWeek = await APIInterface().getTrending("all", "week");
+   notifyListeners();
+  }
+
+  trendingMovieDay() async {
+    movieMovieDay = await APIInterface().getTrending("movie", "day");
+    notifyListeners();
+  }
+
+  trendingMovieWeek() async {
+    movieMovieWeek = await APIInterface().getTrending("movie", "week");
+    notifyListeners();
+  }
+
+  trendingTVDay() async {
+    movieTVDay = await APIInterface().getTrending("tv", "day");
+    notifyListeners();
+  }
+
 
 }

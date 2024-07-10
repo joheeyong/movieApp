@@ -17,6 +17,34 @@ class DiscoverWidget extends StatelessWidget {
       movieCover = context.watch<HomeViewModel>().movieDiscover;
         return Stack(
           children: [
+            Shimmer(
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: <Color>[
+                      Colors.grey[900]!,
+                      Colors.grey[900]!,
+                      Colors.grey[800]!,
+                      Colors.grey[900]!,
+                      Colors.grey[900]!
+                    ],
+                    stops: const <double>[
+                      0.0,
+                      0.35,
+                      0.5,
+                      0.65,
+                      1.0
+                    ]
+                ),
+                child:  Container(
+                  width:double.infinity,
+                  height: MediaQuery.of(context).size.width + (MediaQuery.of(context).size.width * .4),
+                  decoration: const BoxDecoration(
+                    color: Colors.black,
+                    border: Border(),
+                  ),
+                )
+            ),
             Container(
               foregroundDecoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -29,103 +57,15 @@ class DiscoverWidget extends StatelessWidget {
                         Colors.transparent
                       ])),
               child:
-              Image.network("http://image.tmdb.org/t/p//w154/${movieCover?.results[0].posterPath}", width: double.infinity, fit: BoxFit.fitWidth,),
 
+      movieCover?.results[0].posterPath != null ?
+              Image.network("http://image.tmdb.org/t/p//w154/${movieCover?.results[0].posterPath}", width: double.infinity, fit: BoxFit.fitWidth,):
+          Container()
             ),
-            Shimmer(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[
-                    Colors.grey[900]!,
-                    Colors.grey[900]!,
-                    Colors.grey[800]!,
-                    Colors.grey[900]!,
-                    Colors.grey[900]!
-                  ],
-                  stops: const <double>[
-                    0.0,
-                    0.35,
-                    0.5,
-                    0.65,
-                    1.0
-                  ]),
-              child: SizedBox(
-                // width: width,
-                // height: width + (width * .6),
-              ),
-            )
-            // Positioned(
-            //   bottom: 0.0,
-            //   width: width,
-            //   child: Padding(
-            //     padding: const EdgeInsets.symmetric(
-            //         horizontal: 38.0, vertical: 16.0),
-            //     child: Column(
-            //       children: [
-            //         LogoImage(
-            //           movieTrend: movies.list.first,
-            //           size: 3,
-            //         ),
-            //         const SizedBox(
-            //           height: 16.0,
-            //         ),
-            //         const Genre(
-            //           genres: ['Pshychological', 'Dark', 'Drama', 'Movie'],
-            //           color: redColor,
-            //         ),
-            //         Row(
-            //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //           children: [
-            //             const NewAndHotTileAction(
-            //               icon: LucideIcons.plus,
-            //               label: 'My List',
-            //             ),
-            //             ElevatedButton.icon(
-            //                 style: ElevatedButton.styleFrom(
-            //                     padding: const EdgeInsets.symmetric(
-            //                         horizontal: 12.0, vertical: 4.0),
-            //                     backgroundColor: Colors.white,
-            //                     foregroundColor: Colors.black),
-            //                 onPressed: () {},
-            //                 icon: const Icon(Icons.play_arrow),
-            //                 label: const Text('Play')),
-            //             const NewAndHotTileAction(
-            //               icon: LucideIcons.info,
-            //               label: 'Info',
-            //             ),
-            //           ],
-            //         )
-            //       ],
-            //     ),
-            //   ),
-            // )
+
           ],
         );
 
-      // return Shimmer(
-      //   gradient: LinearGradient(
-      //       begin: Alignment.topLeft,
-      //       end: Alignment.bottomRight,
-      //       colors: <Color>[
-      //         Colors.grey[900]!,
-      //         Colors.grey[900]!,
-      //         Colors.grey[800]!,
-      //         Colors.grey[900]!,
-      //         Colors.grey[900]!
-      //       ],
-      //       stops: const <double>[
-      //         0.0,
-      //         0.35,
-      //         0.5,
-      //         0.65,
-      //         1.0
-      //       ]),
-      //   child: SizedBox(
-      //     width: width,
-      //     height: width + (width * .6),
-      //   ),
-      // );
     });
   }
 }

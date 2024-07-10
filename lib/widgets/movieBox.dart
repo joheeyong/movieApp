@@ -9,9 +9,11 @@ class MovieBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-            padding: const EdgeInsets.all(8),
+      margin: EdgeInsets.all(8),
+        child: ClipRRect(
+            borderRadius: BorderRadius.circular(15),
             child: Image.network(
               "http://image.tmdb.org/t/p//w154/${results?.posterPath.toString()}",
-            ));
+            )));
   }
 }
