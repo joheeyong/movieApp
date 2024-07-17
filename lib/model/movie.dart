@@ -17,36 +17,13 @@ class Movie {
     totalResults = json['total_results'];
   }
 
-  Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['page'] = page;
-    _data['results'] = results.map((e)=>e.toJson()).toList();
-    _data['total_pages'] = totalPages;
-    _data['total_results'] = totalResults;
-    return _data;
-  }
 }
 
 class Results {
-  Results({
-    required this.backdropPath,
-    required this.id,
-    required this.title,
-    required this.originalTitle,
-    required this.overview,
-    required this.posterPath,
-    required this.mediaType,
-    required this.adult,
-    required this.originalLanguage,
-    required this.genreIds,
-    required this.popularity,
-    required this.releaseDate,
-    required this.video,
-    required this.voteAverage,
-    required this.voteCount,
-  });
   late final String? backdropPath;
   late final int? id;
+  late final String? name;
+  late final String? type;
   late final String? title;
   late final String? originalTitle;
   late final String? overview;
@@ -60,10 +37,39 @@ class Results {
   late final bool? video;
   late final double? voteAverage;
   late final int? voteCount;
+  late final int? runtime;
+  late final int? episodes;
+  late final int? seasons;
+  late final bool details;
+
+  Results({
+    required this.backdropPath,
+    required this.id,
+    required this.name,
+    required this.type,
+    required this.title,
+    required this.originalTitle,
+    required this.overview,
+    required this.posterPath,
+    required this.mediaType,
+    required this.adult,
+    required this.originalLanguage,
+    required this.genreIds,
+    required this.popularity,
+    required this.releaseDate,
+    required this.video,
+    required this.voteAverage,
+    required this.voteCount,
+    required this.runtime,
+
+
+  });
 
   Results.fromJson(Map<String, dynamic> json){
     backdropPath = json['backdrop_path'];
     id = json['id'];
+    name = json['name'];
+    type = json['media_type'];
     title = json['title'];
     originalTitle = json['original_title'];
     overview = json['overview'];
@@ -71,31 +77,23 @@ class Results {
     mediaType = json['media_type'];
     adult = json['adult'];
     originalLanguage = json['original_language'];
-    genreIds = List.castFrom<dynamic, int>(json['genre_ids']);
+    genreIds = json['genre_ids'] == null ? [] : List.castFrom<dynamic, int>(json['genre_ids']);
     popularity = json['popularity'];
     releaseDate = json['release_date'];
     video = json['video'];
     voteAverage = json['vote_average'];
     voteCount = json['vote_count'];
+    runtime = json['runtime'];
   }
 
-  Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['backdrop_path'] = backdropPath;
-    _data['id'] = id;
-    _data['title'] = title;
-    _data['original_title'] = originalTitle;
-    _data['overview'] = overview;
-    _data['poster_path'] = posterPath;
-    _data['media_type'] = mediaType;
-    _data['adult'] = adult;
-    _data['original_language'] = originalLanguage;
-    _data['genre_ids'] = genreIds;
-    _data['popularity'] = popularity;
-    _data['release_date'] = releaseDate;
-    _data['video'] = video;
-    _data['vote_average'] = voteAverage;
-    _data['vote_count'] = voteCount;
-    return _data;
+  String getRuntime() {
+    if (type == 'movie') {
+      var hours = runtime! / 60,
+          justHours = hours.floor(),
+          minutes = ((hours - hours.floor()) * 60).floor();
+      return '${justHours > 0 ? '${justHours}h' : ''}${minutes > 0 ? '${justHours > 0 ? ' ' : ''}${minutes}m' : ''}';
+    }
+
+    return episodes! < 20 ? '$episodes Episodes' : '$seasons Seasons';
   }
 }

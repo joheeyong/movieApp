@@ -2,13 +2,11 @@
 
 import 'package:examproject1/viewModel/homeViewModel.dart';
 import 'package:examproject1/widgets/discoverWidget.dart';
-import 'package:examproject1/widgets/movieBox.dart';
 import 'package:examproject1/widgets/trandWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
-import 'model/movie.dart';
 
 void main() {
   runApp(

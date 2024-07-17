@@ -38,5 +38,11 @@ class HomeViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<Results> movieDetail(id, type) async {
+    Results? results;
+    results = await APIInterface().getDetails(id.toString(), type);
+    return results;
+  }
+
 
 }
