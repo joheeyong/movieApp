@@ -11,6 +11,8 @@ class DiscoverWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("DiscoverWidget.dart");
+
     return Builder(builder: (context) {
       Movie? movieCover;
       movieCover = context.watch<HomeViewModel>().movieDiscover;
@@ -38,13 +40,15 @@ class DiscoverWidget extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.width +
-                    (MediaQuery.of(context).size.width * .4),
+                    (MediaQuery.of(context).size.width * .43),
                 decoration: const BoxDecoration(
                   color: Colors.black,
                   border: Border(),
                 ),
               )),
           Container(
+              height: MediaQuery.of(context).size.width +
+                  (MediaQuery.of(context).size.width * .43),
               foregroundDecoration: BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.bottomCenter,

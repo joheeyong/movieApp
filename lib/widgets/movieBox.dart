@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
 import '../model/movie.dart';
 import 'NetflixBottomSheet.dart';
 
@@ -10,6 +9,7 @@ class MovieBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("MovieBox.dart");
     return Container(
       margin: const EdgeInsets.all(8),
         child: GestureDetector(

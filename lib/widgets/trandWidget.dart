@@ -12,6 +12,7 @@ class TrandWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("TrandWidget.dart");
     return Builder(builder: (context) {
 
 
@@ -41,9 +42,9 @@ class TrandWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
         Padding(
-          padding: EdgeInsets.only(top: 16.0, bottom: 4.0),
+          padding: const EdgeInsets.only(top: 16.0, bottom: 4.0),
           child: Text(title,
-            style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
           ),
         ),
         SizedBox(

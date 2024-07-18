@@ -27,6 +27,7 @@ class Results {
   late final String? title;
   late final String? originalTitle;
   late final String? overview;
+  late final String? tagline;
   late final String? posterPath;
   late final String? mediaType;
   late final bool? adult;
@@ -50,6 +51,7 @@ class Results {
     required this.title,
     required this.originalTitle,
     required this.overview,
+    required this.tagline,
     required this.posterPath,
     required this.mediaType,
     required this.adult,
@@ -73,6 +75,7 @@ class Results {
     title = json['title'];
     originalTitle = json['original_title'];
     overview = json['overview'];
+    tagline = json['tagline'];
     posterPath = json['poster_path'];
     mediaType = json['media_type'];
     adult = json['adult'];

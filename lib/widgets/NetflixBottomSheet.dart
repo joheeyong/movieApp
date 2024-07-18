@@ -1,14 +1,15 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:examproject1/widgets/MovieDetailsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
-import 'package:shimmer/shimmer.dart';
 import '../model/movie.dart';
 import '../viewModel/homeViewModel.dart';
 
 class NetflixBottomSheet extends StatefulWidget {
   final Results movie;
-  NetflixBottomSheet({super.key, required this.movie});
+  const NetflixBottomSheet({super.key, required this.movie});
 
   @override
   State<NetflixBottomSheet> createState() => _MyHomePageState();
@@ -31,50 +32,9 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
     });
   }
 
-  final _shimmer = Shimmer(
-    gradient: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: <Color>[
-          Colors.grey[900]!,
-          Colors.grey[900]!,
-          Colors.grey[800]!,
-          Colors.grey[900]!,
-          Colors.grey[900]!
-        ],
-        stops: const <double>[
-          0.0,
-          0.35,
-          0.5,
-          0.65,
-          1.0
-        ]),
-    child: Row(
-      children: const [
-        Text(
-          '2022',
-          style: TextStyle(color: Colors.grey, fontSize: 14.0),
-        ),
-        SizedBox(
-          width: 8.0,
-        ),
-        Text(
-          '18+',
-          style: TextStyle(color: Colors.grey, fontSize: 14.0),
-        ),
-        SizedBox(
-          width: 8.0,
-        ),
-        Text(
-          '10 Episodes',
-          style: TextStyle(color: Colors.grey, fontSize: 14.0),
-        ),
-      ],
-    ),
-  );
-
   @override
   Widget build(BuildContext context) {
+    print("NetfixBottomSheet.dart");
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -90,7 +50,21 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
                   ClipRRect(
                       borderRadius: BorderRadius.circular(15),
                       child: Image.network(
-                        "http://image.tmdb.org/t/p//w154/${movie.posterPath.toString()}",
+                        "http://image.tmdb.org/t/p//w154/${movie.posterPath.toString()}", width: 120, height: 180,
+                        loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? ImgloadingProgress) {
+                          if (ImgloadingProgress == null) {
+                            return child;
+                          } else {
+                            return Container(
+                              width: 120.0,
+                              height: 180.0,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  color: Colors.grey),
+                              child: Container(),
+                            );
+                          }
+                        },
                       )),
                 ],
               ),
@@ -127,7 +101,7 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
                               Row(
                                 children: [
                                   Text(
-                                    movie.releaseDate.toString(),
+                                    movie.releaseDate == null ? "" :movie.releaseDate.toString(),
                                     style: const TextStyle(
                                         color: Colors.grey,
                                         fontSize: 14.0),
@@ -135,22 +109,15 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
                                   const SizedBox(
                                     width: 8.0,
                                   ),
-                                  const Text(
-                                    '18+',
-                                    style: TextStyle(
+                                  Text(
+                                    movie.adult== true ?'18+' : '',
+                                    style: const TextStyle(
                                         color: Colors.grey,
                                         fontSize: 14.0),
                                   ),
                                   const SizedBox(
                                     width: 8.0,
                                   ),
-                                  // Text(
-                                  //   movie.getRuntime() ??
-                                  //       '10 Episodes',
-                                  //   style: const TextStyle(
-                                  //       color: Colors.grey,
-                                  //       fontSize: 14.0),
-                                  // ),
                                 ],
                               ),
                             ],
@@ -161,7 +128,7 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
                           radius: 32.0,
                           child: Container(
                             decoration: BoxDecoration(
-                                color: Color(0xff3d3d3d),
+                                color: const Color(0xff3d3d3d),
                                 borderRadius:
                                 BorderRadius.circular(100.0)),
                             child: const Icon(
@@ -188,31 +155,6 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
               )
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: const [
-              Icon(
-                Icons.play_arrow,
-                size: 24,
-                color: Colors.black
-              ),
-              Icon(
-                LucideIcons.download,
-                  size: 24,
-                  color: Colors.black
-              ),
-              Icon(
-                LucideIcons.plus,
-                  size: 24,
-                  color: Colors.black
-              ),
-              Icon(
-                LucideIcons.share2,
-                  size: 24,
-                  color: Colors.black
-              ),
-            ],
-          ),
           const Divider(),
           InkWell(
             onTap: () {
@@ -221,21 +163,19 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
 
               ));
             },
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
-                    const Icon(LucideIcons.info),
-                    const SizedBox(
+                    Icon(LucideIcons.info),
+                    SizedBox(
                       width: 8.0,
                     ),
-                    Text(movie.type == 'tv'
-                        ? 'Episodes & Info'
-                        : 'Details & More'),
+                    Text("자세히보기"),
                   ],
                 ),
-                const Icon(LucideIcons.chevronRight)
+                Icon(LucideIcons.chevronRight)
               ],
             ),
           )
