@@ -9,6 +9,7 @@ import '../viewModel/homeViewModel.dart';
 
 class NetflixBottomSheet extends StatefulWidget {
   final Results movie;
+
   const NetflixBottomSheet({super.key, required this.movie});
 
   @override
@@ -17,19 +18,19 @@ class NetflixBottomSheet extends StatefulWidget {
 
 class _MyHomePageState extends State<NetflixBottomSheet> {
   late Results movie;
+
   @override
   void initState() {
     super.initState();
 
     movie = widget.movie;
     parsingData();
-
   }
 
   parsingData() async {
-    movie = await context.read<HomeViewModel>().movieDetail(movie.id, movie.type);
-    setState(() {
-    });
+    movie =
+        await context.read<HomeViewModel>().movieDetail(movie.id, movie.type);
+    setState(() {});
   }
 
   @override
@@ -50,8 +51,11 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
                   ClipRRect(
                       borderRadius: BorderRadius.circular(15),
                       child: Image.network(
-                        "http://image.tmdb.org/t/p//w154/${movie.posterPath.toString()}", width: 120, height: 180,
-                        loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? ImgloadingProgress) {
+                        "http://image.tmdb.org/t/p//w154/${movie.posterPath.toString()}",
+                        width: 120,
+                        height: 180,
+                        loadingBuilder: (BuildContext context, Widget child,
+                            ImageChunkEvent? ImgloadingProgress) {
                           if (ImgloadingProgress == null) {
                             return child;
                           } else {
@@ -90,7 +94,9 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                                movie.title == null ? movie.name.toString() : movie.title.toString(),
+                                movie.title == null
+                                    ? movie.name.toString()
+                                    : movie.title.toString(),
                                 style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20.0),
@@ -101,19 +107,19 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
                               Row(
                                 children: [
                                   Text(
-                                    movie.releaseDate == null ? "" :movie.releaseDate.toString(),
+                                    movie.releaseDate == null
+                                        ? ""
+                                        : movie.releaseDate.toString(),
                                     style: const TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 14.0),
+                                        color: Colors.grey, fontSize: 14.0),
                                   ),
                                   const SizedBox(
                                     width: 8.0,
                                   ),
                                   Text(
-                                    movie.adult== true ?'18+' : '',
+                                    movie.adult == true ? '18+' : '',
                                     style: const TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 14.0),
+                                        color: Colors.grey, fontSize: 14.0),
                                   ),
                                   const SizedBox(
                                     width: 8.0,
@@ -129,8 +135,7 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
                           child: Container(
                             decoration: BoxDecoration(
                                 color: const Color(0xff3d3d3d),
-                                borderRadius:
-                                BorderRadius.circular(100.0)),
+                                borderRadius: BorderRadius.circular(100.0)),
                             child: const Icon(
                               LucideIcons.x,
                               size: 28.0,
@@ -159,9 +164,12 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
           InkWell(
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MovieDetailsScreen( movie: movie,)
-
-              ));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => MovieDetailsScreen(
+                            movie: movie,
+                          )));
             },
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

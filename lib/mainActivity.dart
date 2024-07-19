@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:examproject1/viewModel/homeViewModel.dart';
+import 'package:examproject1/widgets/NextflixBottomNavigation.dart';
 import 'package:examproject1/widgets/discoverWidget.dart';
 import 'package:examproject1/widgets/trandWidget.dart';
 import 'package:flutter/material.dart';
@@ -80,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print("main.dart");
+    print("mainActivity.dart");
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 0,
@@ -125,6 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
+      bottomNavigationBar: NextflixBottomNavigation()
     );
   }
 }
