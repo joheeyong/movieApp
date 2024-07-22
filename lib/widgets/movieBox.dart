@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 import '../model/movie.dart';
+import '../util/var.dart';
 import 'NetflixBottomSheet.dart';
 
 class MovieBox extends StatelessWidget {
@@ -9,11 +11,10 @@ class MovieBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("MovieBox.dart");
     return Container(
-      margin: const EdgeInsets.all(8),
+        margin: const EdgeInsets.all(8),
         child: GestureDetector(
-            onTap: (){
+            onTap: () {
               showModalBottomSheet(
                   context: context,
                   useRootNavigator: true,
@@ -25,42 +26,20 @@ class MovieBox extends StatelessWidget {
                   ),
                   builder: (context) {
                     return NetflixBottomSheet(
-                      movie: results!,
-                    );
+                        movie: results!, type: results!.type.toString());
                   });
             },
             child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image.network(
-              "http://image.tmdb.org/t/p//w154/${results?.posterPath.toString()}",
-                loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? ImgloadingProgress) {
-                  if (ImgloadingProgress == null) {
-                    return child;
-                  } else {
-                    return Container(
-                      width: 110.0,
-                      height: 220.0,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.0),
-                          color: Colors.grey),
-                      child: Container(),
-                    );
-                  }
-                },
-                errorBuilder: (
-                    BuildContext context,
-                    Object error,
-                    StackTrace? stackTrace,
-                    ) {
-                  return Container(
-                    width: 110.0,
-                    height: 220.0,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        color: Colors.grey),
-                    child: Container(),
-                  );
-                }
-            ))));
+                borderRadius: BorderRadius.circular(15),
+                child: Stack(
+                  children: [
+                    shimmer,
+                    Image.network(
+                        "http://image.tmdb.org/t/p//w154/${results?.posterPath.toString()}",
+                        width: 140,
+                        height: 220,
+                        fit: BoxFit.fitHeight)
+                  ],
+                ))));
   }
 }

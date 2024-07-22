@@ -9,8 +9,9 @@ import '../viewModel/homeViewModel.dart';
 
 class NetflixBottomSheet extends StatefulWidget {
   final Results movie;
+  final String type;
 
-  const NetflixBottomSheet({super.key, required this.movie});
+  const NetflixBottomSheet({super.key, required this.movie, required this.type});
 
   @override
   State<NetflixBottomSheet> createState() => _MyHomePageState();
@@ -169,6 +170,7 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
                   MaterialPageRoute(
                       builder: (BuildContext context) => MovieDetailsScreen(
                             movie: movie,
+                            type: widget.type
                           )));
             },
             child: const Row(

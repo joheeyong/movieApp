@@ -51,7 +51,7 @@ class TrandWidget extends StatelessWidget {
             height: 230,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: movieTrend?.results != null ? movieTrend?.results.length : 0,
+                itemCount: movieTrend?.results != null ? movieTrend?.results.length : 8,
                 itemBuilder: (context, index) {
                   return MovieBox(movieTrend?.results[index]);
                 }))

@@ -2,17 +2,16 @@ import 'package:examproject1/widgets/NewAndHotScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
-
 class NextflixBottomNavigation extends StatefulWidget {
   const NextflixBottomNavigation({super.key});
 
   @override
   State<NextflixBottomNavigation> createState() =>
-      _NextflixBottomNavigationState();
+      NextflixBottomNavigationState();
 }
 
-class _NextflixBottomNavigationState extends State<NextflixBottomNavigation> {
-  int _index = 0;
+class NextflixBottomNavigationState extends State<NextflixBottomNavigation> {
+  final int _index = 0;
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(

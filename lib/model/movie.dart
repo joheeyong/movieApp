@@ -22,6 +22,7 @@ class Movie {
 class Results {
   late final String? backdropPath;
   late final int? id;
+  late final String? lastAirData;
   late final String? name;
   late final String? type;
   late final String? title;
@@ -39,6 +40,7 @@ class Results {
   late final double? voteAverage;
   late final int? voteCount;
   late final int? runtime;
+  late final int? numberOfSeasons;
   late final int? episodes;
   late final int? seasons;
   late final bool details;
@@ -46,6 +48,7 @@ class Results {
   Results({
     required this.backdropPath,
     required this.id,
+    required this.lastAirData,
     required this.name,
     required this.type,
     required this.title,
@@ -63,6 +66,7 @@ class Results {
     required this.voteAverage,
     required this.voteCount,
     required this.runtime,
+    required this.numberOfSeasons
 
 
   });
@@ -70,6 +74,7 @@ class Results {
   Results.fromJson(Map<String, dynamic> json){
     backdropPath = json['backdrop_path'];
     id = json['id'];
+    lastAirData = json['last_air_date'];
     name = json['name'];
     type = json['media_type'];
     title = json['title'];
@@ -87,6 +92,7 @@ class Results {
     voteAverage = json['vote_average'];
     voteCount = json['vote_count'];
     runtime = json['runtime'];
+    numberOfSeasons = json['number_of_seasons'];
   }
 
   String getRuntime() {

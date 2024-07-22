@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:examproject1/api/API.dart';
+import 'package:examproject1/model/Episodes.dart';
 import 'package:examproject1/model/movie.dart';
 import 'package:flutter/material.dart';
 
@@ -41,6 +42,12 @@ class HomeViewModel extends ChangeNotifier {
   Future<Results> movieDetail(id, type) async {
     Results? results;
     results = await APIInterface().getDetails(id.toString(), type);
+    return results;
+  }
+
+  Future<Episodes> tvEpisodes(id, season) async {
+    Episodes? results;
+    results = await APIInterface().getEpisode(id.toString(), season.toString());
     return results;
   }
 
