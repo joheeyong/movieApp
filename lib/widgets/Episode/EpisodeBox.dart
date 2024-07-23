@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import '../model/Episodes.dart';
+import '../../model/Episodes.dart';
 
 class EpisodeBox extends StatelessWidget {
   const EpisodeBox(
@@ -29,14 +29,15 @@ class EpisodeBox extends StatelessWidget {
               child: Container(
                   margin: const EdgeInsets.all(8),
                   child: GestureDetector(
-                      onTap: () {
-                      },
+                      onTap: () {},
                       child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: Image.network(
-                            "http://image.tmdb.org/t/p//original/${episode.stillPath}",
-                            height: 70,
-                          )))),
+                          child: episode.stillPath != null
+                              ? Image.network(
+                                  "http://image.tmdb.org/t/p//original/${episode.stillPath}",
+                                  height: 70,
+                                )
+                              : Container()))),
             ),
             const SizedBox(
               width: 16.0,

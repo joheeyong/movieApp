@@ -1,9 +1,11 @@
+// ignore_for_file: empty_catches
+
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
-import '../model/Episodes.dart';
-import '../model/movie.dart';
-import '../viewModel/homeViewModel.dart';
+import '../../model/Episodes.dart';
+import '../../model/movie.dart';
+import '../../viewModel/homeViewModel.dart';
 import 'EpisodeBox.dart';
 
 class EpisodeComponent extends StatefulWidget {
@@ -16,7 +18,10 @@ class EpisodeComponent extends StatefulWidget {
   State<EpisodeComponent> createState() => EpisodeComponentState();
 }
 
-class EpisodeComponentState extends State<EpisodeComponent> {
+class EpisodeComponentState extends State<EpisodeComponent> with AutomaticKeepAliveClientMixin{
+  @override
+  bool get wantKeepAlive => true;
+
   Episodes? episodes;
 
   int seasonNumber = 0;
@@ -32,7 +37,9 @@ class EpisodeComponentState extends State<EpisodeComponent> {
     episodes = await context
         .read<HomeViewModel>()
         .tvEpisodes(widget.results!.id, season);
-    setState(() {});
+    if(mounted) {
+      setState(() {});
+    }
   }
 
   Widget _seasonDropdown(int seasonNumber) {
@@ -108,7 +115,7 @@ class EpisodeComponentState extends State<EpisodeComponent> {
                       ),
                       onTap: () {
                         Navigator.pop(context);
-                        seasonNumber = season-1;
+                        seasonNumber = season - 1;
                         getData(season);
                       },
                     ),
@@ -132,19 +139,22 @@ class EpisodeComponentState extends State<EpisodeComponent> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        _seasonDropdown( seasonNumber),
+        _seasonDropdown(seasonNumber),
         ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             scrollDirection: Axis.vertical,
-            itemCount: episodes!.episodes.length,
+            itemCount: episodes != null ? episodes!.episodes.length : 10,
             itemBuilder: (context, index) {
-              return EpisodeBox(
+              return
+                episodes== null ? Container(height: 50,):
+                EpisodeBox(
                   episode: episodes!.episodes[index],
                   fill: true,
                   padding: EdgeInsets.zero);

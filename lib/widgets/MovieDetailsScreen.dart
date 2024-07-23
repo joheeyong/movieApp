@@ -1,8 +1,11 @@
-import 'package:examproject1/widgets/MovieDetailTab.dart';
+import 'package:examproject1/widgets/Episode/EpisodeComponent.dart';
+import 'package:examproject1/widgets/MoreLike/MoreLikeComponent.dart';
 import 'package:examproject1/widgets/trandWidget.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import '../model/movie.dart';
+import 'Trailer/TrailerComponent.dart';
 
 class MovieDetailsScreen extends StatefulWidget {
   const MovieDetailsScreen(
@@ -17,16 +20,16 @@ class MovieDetailsScreen extends StatefulWidget {
 
 class _MovieDetailsScreenState extends State<MovieDetailsScreen>
     with SingleTickerProviderStateMixin {
-
   int tapIndex = 0;
   late final TabController _tabController =
       TabController(length: widget.type == 'tv' ? 3 : 2, vsync: this)
         ..addListener(() {
-
           setState(() {
             tapIndex = _tabController.index;
           });
         });
+
+  late TabBarView tabBarView;
 
   @override
   void initState() {
@@ -197,29 +200,34 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
           const Divider(
             height: 1.0,
           ),
-              TabBar(
-                  controller: _tabController,
-                  indicator: const BoxDecoration(
-                    border: Border(
-                        top: BorderSide(
-                          color:  Color(0xffe50914),
-                          width: 4.0,
-                        )),
+          TabBar(
+              controller: _tabController,
+              indicator: const BoxDecoration(
+                border: Border(
+                    top: BorderSide(
+                  color: Color(0xffe50914),
+                  width: 4.0,
+                )),
+              ),
+              tabs: [
+                if (widget.type == 'tv')
+                  const Tab(
+                    text: '에피소드',
                   ),
-                  tabs: [
-                    if (widget.type == 'tv')
-                      const Tab(
-                        text: 'Episodes',
-                      ),
-                    const Tab(
-                      text: 'Trailers & More',
-                    ),
-                    const Tab(
-                      text: 'More Like This',
-                    ),
-                  ]),
-              _tabController.index==0?
-          EpisodeComponent(widget.movie, widget.movie.numberOfSeasons) : Container(),
+                const Tab(
+                  text: '관련 영상',
+                ),
+                const Tab(
+                  text: '추천콘텐츠',
+                ),
+              ]),
+          _tabController.index == 0 && widget.type == 'tv'
+              ? EpisodeComponent(widget.movie, widget.movie.numberOfSeasons)
+              : _tabController.index == 1 && widget.type == 'tv' ||
+                      _tabController.index == 0 && widget.type == "movie"
+                  ? const TrailerComponent()
+                  :
+          const MoreLikeComponent()
         ])),
       ],
     ));
