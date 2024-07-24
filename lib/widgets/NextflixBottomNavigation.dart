@@ -1,6 +1,9 @@
-import 'package:examproject1/widgets/NewAndHotScreen.dart';
+import 'package:examproject1/widgets/NewAndHot/NewAndHotScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:provider/provider.dart';
+
+import '../viewModel/homeViewModel.dart';
 
 class NextflixBottomNavigation extends StatefulWidget {
   const NextflixBottomNavigation({super.key});
@@ -46,8 +49,9 @@ class NextflixBottomNavigationState extends State<NextflixBottomNavigation> {
       type: BottomNavigationBarType.fixed,
       currentIndex: _index,
       selectedItemColor: Colors.white,
-      onTap: (index) {
-
+      onTap: (index) async {
+        await context.read<HomeViewModel>().callDiscoverTV();
+        await context.read<HomeViewModel>().callDiscoverMovie();
           if(index==2){
             Navigator.push(
                 context,

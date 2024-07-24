@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
@@ -16,7 +15,6 @@ class DiscoverWidget extends StatelessWidget {
     return Builder(builder: (context) {
       Movie? movieCover;
       movieCover = context.watch<HomeViewModel>().movieDiscover;
-      print("http://image.tmdb.org/t/p//original/${movieCover?.results[0].posterPath}");
       return Stack(
         children: [
           Shimmer(
@@ -60,8 +58,9 @@ class DiscoverWidget extends StatelessWidget {
                     Colors.transparent
                   ])),
               child: movieCover?.results[0].posterPath != null
-                  ? 
-                  Image.network("http://image.tmdb.org/t/p//original/${movieCover?.results[0].posterPath}",)
+                  ? Image.network(
+                      "http://image.tmdb.org/t/p//original/${movieCover?.results[0].posterPath}",
+                    )
                   : Container()),
         ],
       );

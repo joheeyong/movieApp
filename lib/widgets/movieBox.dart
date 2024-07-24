@@ -34,11 +34,12 @@ class MovieBox extends StatelessWidget {
                 child: Stack(
                   children: [
                     shimmer,
+                    results?.posterPath.toString()!= null ?
                     Image.network(
                         "http://image.tmdb.org/t/p//w154/${results?.posterPath.toString()}",
                         width: 140,
                         height: 220,
-                        fit: BoxFit.fitHeight)
+                        fit: BoxFit.fitHeight): Container()
                   ],
                 ))));
   }

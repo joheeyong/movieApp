@@ -44,6 +44,7 @@ class Results {
   late final int? episodes;
   late final int? seasons;
   late final bool details;
+  late final String? firstAirDate;
 
   Results({
     required this.backdropPath,
@@ -66,9 +67,8 @@ class Results {
     required this.voteAverage,
     required this.voteCount,
     required this.runtime,
-    required this.numberOfSeasons
-
-
+    required this.numberOfSeasons,
+    required this.firstAirDate,
   });
 
   Results.fromJson(Map<String, dynamic> json){
@@ -93,6 +93,7 @@ class Results {
     voteCount = json['vote_count'];
     runtime = json['runtime'];
     numberOfSeasons = json['number_of_seasons'];
+    firstAirDate = json['first_air_date'];
   }
 
   String getRuntime() {

@@ -2,8 +2,8 @@ import 'package:examproject1/widgets/Episode/EpisodeComponent.dart';
 import 'package:examproject1/widgets/MoreLike/MoreLikeComponent.dart';
 import 'package:examproject1/widgets/trandWidget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:shimmer/shimmer.dart';
 import '../model/movie.dart';
 import 'Trailer/TrailerComponent.dart';
 
@@ -64,6 +64,32 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
             delegate: SliverChildListDelegate.fixed([
           Stack(
             children: [
+              Shimmer(
+                  gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: <Color>[
+                        Colors.grey[900]!,
+                        Colors.grey[900]!,
+                        Colors.grey[800]!,
+                        Colors.grey[900]!,
+                        Colors.grey[900]!
+                      ],
+                      stops: const <double>[
+                        0.0,
+                        0.35,
+                        0.5,
+                        0.65,
+                        1.0
+                      ]),
+                  child: Container(
+                    width: double.infinity,
+                    height: 220,
+                    decoration: const BoxDecoration(
+                      color: Colors.black,
+                      border: Border(),
+                    ),
+                  )),
               Image.network(
                 "http://image.tmdb.org/t/p//w780/${widget.movie.backdropPath}",
               ),
@@ -106,12 +132,14 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                Text(
+                Visibility(
+                    visible: widget.movie.releaseDate.toString()!= 'null' || widget.movie.lastAirData.toString()!= 'null',
+                    child: Text(
                   widget.movie.releaseDate.toString() == "null"
                       ? widget.movie.lastAirData.toString()
                       : widget.movie.releaseDate.toString(),
                   style: const TextStyle(color: Colors.grey),
-                ),
+                )),
                 const SizedBox(
                   width: 8.0,
                 ),

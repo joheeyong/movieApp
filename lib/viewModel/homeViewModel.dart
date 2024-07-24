@@ -6,12 +6,13 @@ import 'package:examproject1/model/movie.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewModel extends ChangeNotifier {
-
   Movie? movieDiscover;
   Movie? movieAllWeek;
   Movie? movieMovieDay;
   Movie? movieMovieWeek;
   Movie? movieTVDay;
+  Movie? DiscoverTV;
+  Movie? DiscoverMovie;
 
 
   callDiscover() async {
@@ -21,7 +22,7 @@ class HomeViewModel extends ChangeNotifier {
 
   trendingAllWeek() async {
     movieAllWeek = await APIInterface().getTrending("all", "week");
-   notifyListeners();
+    notifyListeners();
   }
 
   trendingMovieDay() async {
@@ -51,5 +52,13 @@ class HomeViewModel extends ChangeNotifier {
     return results;
   }
 
+  callDiscoverTV() async {
+    DiscoverTV = await APIInterface().getDiscoverType("tv");
+    notifyListeners();
+  }
 
+  callDiscoverMovie() async {
+    DiscoverMovie = await APIInterface().getDiscoverType("movie");
+    notifyListeners();
+  }
 }

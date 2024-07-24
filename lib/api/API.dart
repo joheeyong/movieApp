@@ -46,4 +46,15 @@ class APIInterface {
     var body = jsonDecode(utf8.decode(result.bodyBytes));
     return Episodes.fromJson(body);
   }
+
+  Future<Movie> getDiscoverType(String type) async {
+    var result = await http.get(
+        Uri.parse('${baseUrl}/discover/$type?api_key=${apiKey}&language=ko-KR'));
+    var body = jsonDecode(utf8.decode(result.bodyBytes));
+
+    print('${baseUrl}/discover/$type?api_key=${apiKey}&language=ko-KR');
+
+    return Movie.fromJson(body);
+  }
+
 }
