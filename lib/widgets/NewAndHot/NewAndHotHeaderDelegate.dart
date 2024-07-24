@@ -1,10 +1,14 @@
+import 'dart:math';
+
+import 'package:examproject1/widgets/NewAndHot/viewportOffset.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 class NewAndHotHeaderDelegate extends SliverPersistentHeaderDelegate {
-  NewAndHotHeaderDelegate({required this.tabController});
+  NewAndHotHeaderDelegate({required this.tabController, required this.scrollController,});
 
   final TabController tabController;
+  final ScrollController scrollController;
 
   @override
   Widget build(
@@ -51,6 +55,13 @@ class NewAndHotHeaderDelegate extends SliverPersistentHeaderDelegate {
           SizedBox(
             height: 38.0,
             child: TabBar(
+              onTap: (index){
+
+                    scrollController.animateTo(tabController.index * 3001.0,
+                        curve: Curves.linear,
+                        duration: const Duration(milliseconds: 50));
+
+              },
               controller: tabController,
               indicatorPadding: EdgeInsets.zero,
               padding: EdgeInsets.zero,

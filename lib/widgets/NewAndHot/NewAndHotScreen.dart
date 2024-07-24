@@ -32,23 +32,23 @@ class _NewAndHotScreenState extends State<NewAndHotScreen>
     });
 
   late final TabController _tabController =
-      TabController(length: 3, vsync: this)
-        ..addListener(() {
-          if (_tabController.indexIsChanging &&
-              _scrollController.position.userScrollDirection ==
-                  ScrollDirection.idle) {
-            var offset = _scrollController.offset,
-                minRange = offset - 300,
-                maxRange = offset + 300,
-                offsetTo = _tabController.index * 3000.0;
+  TabController(length: 3, vsync: this)
+    ..addListener(() {
+      if (_tabController.indexIsChanging &&
+          _scrollController.position.userScrollDirection ==
+              ScrollDirection.idle) {
+        var offset = _scrollController.offset,
+            minRange = offset - 300,
+            maxRange = offset + 300,
+            offsetTo = _tabController.index * 3000.0;
 
-            if (!(minRange <= offsetTo && maxRange >= offsetTo)) {
-              _scrollController.animateTo(_tabController.index * 3000.0,
-                  curve: Curves.linear,
-                  duration: const Duration(milliseconds: 1000));
-            }
-          }
-        });
+        if (!(minRange <= offsetTo && maxRange >= offsetTo)) {
+          _scrollController.animateTo(_tabController.index * 3000.0,
+              curve: Curves.linear,
+              duration: const Duration(milliseconds: 1000));
+        }
+      }
+    });
 
   @override
   void initState() {
@@ -62,7 +62,7 @@ class _NewAndHotScreenState extends State<NewAndHotScreen>
         controller: _scrollController,
         slivers: [
           SliverPersistentHeader(
-            delegate: NewAndHotHeaderDelegate(tabController: _tabController),
+            delegate: NewAndHotHeaderDelegate(tabController: _tabController, scrollController: _scrollController, ),
             pinned: true,
           ),
           Builder(builder: (context) {
