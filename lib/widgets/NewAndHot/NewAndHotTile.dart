@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-
 import '../../model/movie.dart';
 import '../../viewModel/homeViewModel.dart';
 import '../MovieDetailsScreen.dart';
@@ -19,13 +18,13 @@ class NewAndHotTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () async {
-        Results mm =
+        Results detailResult =
             await context.read<HomeViewModel>().movieDetail(movie.id, type);
         Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (BuildContext context) =>
-                    MovieDetailsScreen(movie: mm, type: type)));
+                    MovieDetailsScreen(movie: detailResult, type: type)));
       },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,7 +131,9 @@ class NewAndHotTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      movie.name != null ? movie.name.toString() : movie.title.toString(),
+                      movie.name != null
+                          ? movie.name.toString()
+                          : movie.title.toString(),
                       style: const TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 18.0),
                     ),

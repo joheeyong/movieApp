@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
 
-
 const baseUrl = 'https://api.themoviedb.org/3';
 const apiKey = '0a6c0b2c95e6a608a491267361eab2c3';
 

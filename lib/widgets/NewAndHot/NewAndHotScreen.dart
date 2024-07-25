@@ -20,35 +20,35 @@ class NewAndHotScreen extends StatefulWidget {
 
 class _NewAndHotScreenState extends State<NewAndHotScreen>
     with SingleTickerProviderStateMixin {
-  late final ScrollController _scrollController = ScrollController()
+  late final ScrollController scrollController = ScrollController()
     ..addListener(() {
-      if (_scrollController.position.userScrollDirection !=
+      if (scrollController.position.userScrollDirection !=
           ScrollDirection.idle) {
-        int newIndex = max(0, min(_scrollController.offset ~/ 3000, 2));
-        if (_tabController.index != newIndex) {
-          _tabController.animateTo(newIndex);
+        int newIndex = max(0, min(scrollController.offset ~/ 3000, 2));
+        if (tabController.index != newIndex) {
+          tabController.animateTo(newIndex);
         }
       }
     });
 
-  late final TabController _tabController =
-  TabController(length: 3, vsync: this)
-    ..addListener(() {
-      if (_tabController.indexIsChanging &&
-          _scrollController.position.userScrollDirection ==
-              ScrollDirection.idle) {
-        var offset = _scrollController.offset,
-            minRange = offset - 300,
-            maxRange = offset + 300,
-            offsetTo = _tabController.index * 3000.0;
+  late final TabController tabController =
+      TabController(length: 3, vsync: this)
+        ..addListener(() {
+          if (tabController.indexIsChanging &&
+              scrollController.position.userScrollDirection ==
+                  ScrollDirection.idle) {
+            var offset = scrollController.offset,
+                minRange = offset - 300,
+                maxRange = offset + 300,
+                offsetTo = tabController.index * 3000.0;
 
-        if (!(minRange <= offsetTo && maxRange >= offsetTo)) {
-          _scrollController.animateTo(_tabController.index * 3000.0,
-              curve: Curves.linear,
-              duration: const Duration(milliseconds: 1000));
-        }
-      }
-    });
+            if (!(minRange <= offsetTo && maxRange >= offsetTo)) {
+              scrollController.animateTo(tabController.index * 3000.0,
+                  curve: Curves.linear,
+                  duration: const Duration(milliseconds: 1000));
+            }
+          }
+        });
 
   @override
   void initState() {
@@ -59,10 +59,13 @@ class _NewAndHotScreenState extends State<NewAndHotScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
-        controller: _scrollController,
+        controller: scrollController,
         slivers: [
           SliverPersistentHeader(
-            delegate: NewAndHotHeaderDelegate(tabController: _tabController, scrollController: _scrollController, ),
+            delegate: NewAndHotHeaderDelegate(
+              tabController: tabController,
+              scrollController: scrollController,
+            ),
             pinned: true,
           ),
           Builder(builder: (context) {

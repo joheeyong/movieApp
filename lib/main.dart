@@ -56,15 +56,15 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   double scrollOffset = 0.0;
-  Color _appBarColor = Colors.transparent;
+  Color appBarColor = Colors.transparent;
   late final ScrollController mainScrollController = ScrollController()
     ..addListener(() {
       setState(() {
         scrollOffset = mainScrollController.offset;
         if (scrollOffset > 100) {
-          _appBarColor = Colors.black38;
+          appBarColor = Colors.black38;
         } else {
-          _appBarColor = Colors.transparent;
+          appBarColor = Colors.transparent;
         }
       });
     });
@@ -81,52 +81,50 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print("main.dart");
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 0,
-        backgroundColor: _appBarColor,
-        surfaceTintColor: Colors.black,
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(72),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Image.asset(
-                'assets/netflixIcon.png',
-                height: 72.0,
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  IconButton(
-                      onPressed: () {}, icon: const Icon(LucideIcons.cast)),
-                  IconButton(
-                      onPressed: () {}, icon: const Icon(LucideIcons.search)),
-                ],
-              )
-            ],
+        appBar: AppBar(
+          toolbarHeight: 0,
+          backgroundColor: appBarColor,
+          surfaceTintColor: Colors.black,
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(72),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Image.asset(
+                  'assets/netflixIcon.png',
+                  height: 72.0,
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                        onPressed: () {}, icon: const Icon(LucideIcons.cast)),
+                    IconButton(
+                        onPressed: () {}, icon: const Icon(LucideIcons.search)),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
-      ),
-      extendBodyBehindAppBar: true, //body 위에 appbar
-      body: CustomScrollView(
-        physics: const ClampingScrollPhysics(),
-        controller: mainScrollController,
-        slivers: [
-          SliverList(
-            delegate: SliverChildListDelegate.fixed([
-              DiscoverWidget(),
-              TrandWidget("allWeek"),
-              TrandWidget("movieDay"),
-              TrandWidget("movieWeek"),
-              TrandWidget("TVDay"),
-            ]),
-          ),
-        ],
-      ),
-      bottomNavigationBar: NextflixBottomNavigation()
-    );
+        extendBodyBehindAppBar: true, //body 위에 appbar
+        body: CustomScrollView(
+          physics: const ClampingScrollPhysics(),
+          controller: mainScrollController,
+          slivers: [
+            SliverList(
+              delegate: SliverChildListDelegate.fixed([
+                DiscoverWidget(),
+                TrandWidget("allWeek"),
+                TrandWidget("movieDay"),
+                TrandWidget("movieWeek"),
+                TrandWidget("TVDay"),
+              ]),
+            ),
+          ],
+        ),
+        bottomNavigationBar: NextflixBottomNavigation());
   }
 }

@@ -21,11 +21,11 @@ class MovieDetailsScreen extends StatefulWidget {
 class _MovieDetailsScreenState extends State<MovieDetailsScreen>
     with SingleTickerProviderStateMixin {
   int tapIndex = 0;
-  late final TabController _tabController =
+  late final TabController tabController =
       TabController(length: widget.type == 'tv' ? 3 : 2, vsync: this)
         ..addListener(() {
           setState(() {
-            tapIndex = _tabController.index;
+            tapIndex = tabController.index;
           });
         });
 
@@ -38,10 +38,10 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
 
   @override
   Widget build(BuildContext context) {
-    return _buildDetails(widget.movie);
+    return buildDetails(widget.movie);
   }
 
-  Widget _buildDetails(Results movie) {
+  Widget buildDetails(Results movie) {
     return Scaffold(
         body: CustomScrollView(
       slivers: [
@@ -133,13 +133,14 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
             child: Row(
               children: [
                 Visibility(
-                    visible: widget.movie.releaseDate.toString()!= 'null' || widget.movie.lastAirData.toString()!= 'null',
+                    visible: widget.movie.releaseDate.toString() != 'null' ||
+                        widget.movie.lastAirData.toString() != 'null',
                     child: Text(
-                  widget.movie.releaseDate.toString() == "null"
-                      ? widget.movie.lastAirData.toString()
-                      : widget.movie.releaseDate.toString(),
-                  style: const TextStyle(color: Colors.grey),
-                )),
+                      widget.movie.releaseDate.toString() == "null"
+                          ? widget.movie.lastAirData.toString()
+                          : widget.movie.releaseDate.toString(),
+                      style: const TextStyle(color: Colors.grey),
+                    )),
                 const SizedBox(
                   width: 8.0,
                 ),
@@ -229,7 +230,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
             height: 1.0,
           ),
           TabBar(
-              controller: _tabController,
+              controller: tabController,
               indicator: const BoxDecoration(
                 border: Border(
                     top: BorderSide(
@@ -249,13 +250,12 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
                   text: '추천콘텐츠',
                 ),
               ]),
-          _tabController.index == 0 && widget.type == 'tv'
+          tabController.index == 0 && widget.type == 'tv'
               ? EpisodeComponent(widget.movie, widget.movie.numberOfSeasons)
-              : _tabController.index == 1 && widget.type == 'tv' ||
-                      _tabController.index == 0 && widget.type == "movie"
+              : tabController.index == 1 && widget.type == 'tv' ||
+                      tabController.index == 0 && widget.type == "movie"
                   ? const TrailerComponent()
-                  :
-          const MoreLikeComponent()
+                  : const MoreLikeComponent()
         ])),
       ],
     ));

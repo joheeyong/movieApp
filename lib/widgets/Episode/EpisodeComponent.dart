@@ -18,12 +18,12 @@ class EpisodeComponent extends StatefulWidget {
   State<EpisodeComponent> createState() => EpisodeComponentState();
 }
 
-class EpisodeComponentState extends State<EpisodeComponent> with AutomaticKeepAliveClientMixin{
+class EpisodeComponentState extends State<EpisodeComponent>
+    with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
 
   Episodes? episodes;
-
   int seasonNumber = 0;
 
   @override
@@ -37,7 +37,7 @@ class EpisodeComponentState extends State<EpisodeComponent> with AutomaticKeepAl
     episodes = await context
         .read<HomeViewModel>()
         .tvEpisodes(widget.results!.id, season);
-    if(mounted) {
+    if (mounted) {
       setState(() {});
     }
   }
@@ -152,12 +152,14 @@ class EpisodeComponentState extends State<EpisodeComponent> with AutomaticKeepAl
             scrollDirection: Axis.vertical,
             itemCount: episodes != null ? episodes!.episodes.length : 10,
             itemBuilder: (context, index) {
-              return
-                episodes== null ? Container(height: 50,):
-                EpisodeBox(
-                  episode: episodes!.episodes[index],
-                  fill: true,
-                  padding: EdgeInsets.zero);
+              return episodes == null
+                  ? Container(
+                      height: 50,
+                    )
+                  : EpisodeBox(
+                      episode: episodes!.episodes[index],
+                      fill: true,
+                      padding: EdgeInsets.zero);
             })
       ],
     );

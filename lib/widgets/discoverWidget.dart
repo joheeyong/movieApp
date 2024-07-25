@@ -10,8 +10,6 @@ class DiscoverWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("DiscoverWidget.dart");
-
     return Builder(builder: (context) {
       Movie? movieCover;
       movieCover = context.watch<HomeViewModel>().movieDiscover;

@@ -1,26 +1,21 @@
 // ignore_for_file: empty_catches
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../../model/movie.dart';
 import '../../../viewModel/homeViewModel.dart';
-import '../../util/var.dart';
 import '../NetflixBottomSheet.dart';
-import '../movieBox.dart';
 
 class MoreLikeComponent extends StatefulWidget {
-
-
   const MoreLikeComponent({super.key});
 
   @override
   State<MoreLikeComponent> createState() => MoreLikeComponentState();
 }
 
-class MoreLikeComponentState extends State<MoreLikeComponent> with AutomaticKeepAliveClientMixin{
+class MoreLikeComponentState extends State<MoreLikeComponent>
+    with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
 
@@ -28,21 +23,19 @@ class MoreLikeComponentState extends State<MoreLikeComponent> with AutomaticKeep
 
   @override
   Widget build(BuildContext context) {
-    movieTVDay = context.read<HomeViewModel>().movieTVDay;
     super.build(context);
-    return          GridView.builder(
+    movieTVDay = context.read<HomeViewModel>().movieTVDay;
+    return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: movieTVDay?.results.length,
-      gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3, //1 개의 행에 보여줄 item 개수
-        mainAxisSpacing: 10, //수평 Padding
-        crossAxisSpacing: 10, //수직 Padding
-        childAspectRatio: 1 /1.5
-      ),
-      itemBuilder: (BuildContext context,int index){
-        // return Text(index.toString());
-        return  GestureDetector(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 10,
+          childAspectRatio: 1 / 1.5),
+      itemBuilder: (BuildContext context, int index) {
+        return GestureDetector(
             onTap: () {
               showModalBottomSheet(
                   context: context,
@@ -55,7 +48,8 @@ class MoreLikeComponentState extends State<MoreLikeComponent> with AutomaticKeep
                   ),
                   builder: (context) {
                     return NetflixBottomSheet(
-                        movie: movieTVDay!.results[index], type: movieTVDay!.results[index].type.toString());
+                        movie: movieTVDay!.results[index],
+                        type: movieTVDay!.results[index].type.toString());
                   });
             },
             child: ClipRRect(

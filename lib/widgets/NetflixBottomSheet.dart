@@ -11,7 +11,8 @@ class NetflixBottomSheet extends StatefulWidget {
   final Results movie;
   final String type;
 
-  const NetflixBottomSheet({super.key, required this.movie, required this.type});
+  const NetflixBottomSheet(
+      {super.key, required this.movie, required this.type});
 
   @override
   State<NetflixBottomSheet> createState() => _MyHomePageState();
@@ -36,7 +37,6 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    print("NetfixBottomSheet.dart");
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -168,10 +168,8 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => MovieDetailsScreen(
-                            movie: movie,
-                            type: widget.type
-                          )));
+                      builder: (BuildContext context) =>
+                          MovieDetailsScreen(movie: movie, type: widget.type)));
             },
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

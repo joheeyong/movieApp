@@ -15,6 +15,7 @@ class NextflixBottomNavigation extends StatefulWidget {
 
 class NextflixBottomNavigationState extends State<NextflixBottomNavigation> {
   final int _index = 0;
+
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -52,13 +53,12 @@ class NextflixBottomNavigationState extends State<NextflixBottomNavigation> {
       onTap: (index) async {
         await context.read<HomeViewModel>().callDiscoverTV();
         await context.read<HomeViewModel>().callDiscoverMovie();
-          if(index==2){
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) => const NewAndHotScreen()));
-          }
-
+        if (index == 2) {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => const NewAndHotScreen()));
+        }
       },
     );
   }
