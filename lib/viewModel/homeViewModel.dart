@@ -17,27 +17,27 @@ class HomeViewModel extends ChangeNotifier {
 
   callDiscover() async {
     movieDiscover = await APIInterface().getDiscover();
-    notifyListeners();
+    // notifyListeners();
   }
 
   trendingAllWeek() async {
     movieAllWeek = await APIInterface().getTrending("all", "week");
-    notifyListeners();
+    // notifyListeners();
   }
 
   trendingMovieDay() async {
     movieMovieDay = await APIInterface().getTrending("movie", "day");
-    notifyListeners();
+    // notifyListeners();
   }
 
   trendingMovieWeek() async {
     movieMovieWeek = await APIInterface().getTrending("movie", "week");
-    notifyListeners();
+    // notifyListeners();
   }
 
   trendingTVDay() async {
     movieTVDay = await APIInterface().getTrending("tv", "day");
-    notifyListeners();
+    // notifyListeners();
   }
 
   Future<Results> movieDetail(id, type) async {
@@ -54,11 +54,11 @@ class HomeViewModel extends ChangeNotifier {
 
   callDiscoverTV() async {
     DiscoverTV = await APIInterface().getDiscoverType("tv");
-    notifyListeners();
+    // notifyListeners();
   }
 
   callDiscoverMovie() async {
     DiscoverMovie = await APIInterface().getDiscoverType("movie");
-    notifyListeners();
+    // notifyListeners();
   }
 }
