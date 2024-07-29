@@ -24,13 +24,13 @@ class NextflixBottomNavigationState extends State<NextflixBottomNavigation> {
         BottomNavigationBarItem(
           icon: Icon(LucideIcons.home),
           activeIcon: Icon(LucideIcons.home),
-          label: 'Home',
+          label: '홈',
         ),
 
         BottomNavigationBarItem(
           icon: Icon(LucideIcons.youtube),
           activeIcon: Icon(LucideIcons.youtube),
-          label: 'New & Hot',
+          label: '공개예정',
         ),
       ],
       type: BottomNavigationBarType.fixed,

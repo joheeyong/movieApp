@@ -76,7 +76,7 @@ class Results {
     id = json['id'];
     lastAirData = json['last_air_date'];
     name = json['name'];
-    type = json['media_type'];
+    type = json['media_type'] == null ? "movie" : json['media_type'];
     title = json['title'];
     originalTitle = json['original_title'];
     overview = json['overview'];

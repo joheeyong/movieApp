@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
@@ -15,6 +17,7 @@ class NewAndHotHeaderDelegate extends SliverPersistentHeaderDelegate {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          Container(height: Platform.isIOS ? 50 : 0),
           Row(
             children: [
               Text('공개예정',

@@ -1,5 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'dart:io';
+
 import 'package:examproject1/widgets/MovieDetailsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
@@ -30,8 +32,7 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
   }
 
   parsingData() async {
-    movie =
-        await context.read<HomeViewModel>().movieDetail(movie.id, movie.type);
+    movie = await context.read<HomeViewModel>().movieDetail(movie.id, movie.type);
     setState(() {});
   }
 
@@ -186,7 +187,8 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
                 Icon(LucideIcons.chevronRight)
               ],
             ),
-          )
+          ),
+          SizedBox(height: Platform.isIOS ? 20 : 0)
         ],
       ),
     );
