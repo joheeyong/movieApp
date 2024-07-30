@@ -4,6 +4,7 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
 
 import '../viewModel/homeViewModel.dart';
+import 'DownLoad/DownLoadScreen.dart';
 
 class NextflixBottomNavigation extends StatefulWidget {
   const NextflixBottomNavigation({super.key});
@@ -32,6 +33,11 @@ class NextflixBottomNavigationState extends State<NextflixBottomNavigation> {
           activeIcon: Icon(LucideIcons.youtube),
           label: '공개예정',
         ),
+        BottomNavigationBarItem(
+          icon: Icon(LucideIcons.download),
+          activeIcon: Icon(LucideIcons.download),
+          label: '최근본영상',
+        ),
       ],
       type: BottomNavigationBarType.fixed,
       currentIndex: navigationIndex,
@@ -44,6 +50,12 @@ class NextflixBottomNavigationState extends State<NextflixBottomNavigation> {
               context,
               MaterialPageRoute(
                   builder: (BuildContext context) => const NewAndHotScreen()));
+        }
+        if (index == 2) {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => const DownLoadScreen()));
         }
       },
     );

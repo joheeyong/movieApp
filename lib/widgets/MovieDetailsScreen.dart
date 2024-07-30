@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:shimmer/shimmer.dart';
 import '../model/movie.dart';
+import 'DownLoad/recentItemVIewDatabaseHelper.dart';
 import 'Trailer/TrailerComponent.dart';
 
 class MovieDetailsScreen extends StatefulWidget {
@@ -34,6 +35,57 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
   @override
   void initState() {
     super.initState();
+    setSQLite();
+  }
+
+  setSQLite() async {
+    await instance.delete(Results(
+      backdropPath: widget.movie.backdropPath,
+      id: widget.movie.id,
+      lastAirData: widget.movie.lastAirData,
+      name: widget.movie.name,
+      type: widget.movie.type,
+      title: widget.movie.title,
+      originalTitle: widget.movie.originalTitle,
+      overview: widget.movie.overview,
+      tagline: widget.movie.tagline,
+      posterPath: widget.movie.posterPath,
+      mediaType: widget.movie.mediaType,
+      adult: widget.movie.adult,
+      originalLanguage: widget.movie.originalLanguage,
+      popularity: widget.movie.popularity,
+      releaseDate: widget.movie.releaseDate,
+      video: widget.movie.video,
+      voteAverage: widget.movie.voteAverage,
+      voteCount: widget.movie.voteCount,
+      runtime: widget.movie.runtime,
+      numberOfSeasons: widget.movie.numberOfSeasons,
+      firstAirDate: widget.movie.firstAirDate,
+    ));
+
+    await instance.add(Results(
+      backdropPath: widget.movie.backdropPath,
+      id: widget.movie.id,
+      lastAirData: widget.movie.lastAirData,
+      name: widget.movie.name,
+      type: widget.movie.type,
+      title: widget.movie.title,
+      originalTitle: widget.movie.originalTitle,
+      overview: widget.movie.overview,
+      tagline: widget.movie.tagline,
+      posterPath: widget.movie.posterPath,
+      mediaType: widget.movie.mediaType,
+      adult: widget.movie.adult,
+      originalLanguage: widget.movie.originalLanguage,
+      popularity: widget.movie.popularity,
+      releaseDate: widget.movie.releaseDate,
+      video: widget.movie.video,
+      voteAverage: widget.movie.voteAverage,
+      voteCount: widget.movie.voteCount,
+      runtime: widget.movie.runtime,
+      numberOfSeasons: widget.movie.numberOfSeasons,
+      firstAirDate: widget.movie.firstAirDate,
+    ));
   }
 
   @override

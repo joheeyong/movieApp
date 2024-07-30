@@ -5,18 +5,19 @@ class Movie {
     required this.totalPages,
     required this.totalResults,
   });
+
   late final int page;
   late final List<Results> results;
   late final int totalPages;
   late final int totalResults;
 
-  Movie.fromJson(Map<String, dynamic> json){
+  Movie.fromJson(Map<String, dynamic> json) {
     page = json['page'];
-    results = List.from(json['results']).map((e)=>Results.fromJson(e)).toList();
+    results =
+        List.from(json['results']).map((e) => Results.fromJson(e)).toList();
     totalPages = json['total_pages'];
     totalResults = json['total_results'];
   }
-
 }
 
 class Results {
@@ -33,7 +34,6 @@ class Results {
   late final String? mediaType;
   late final bool? adult;
   late final String? originalLanguage;
-  late final List<int>? genreIds;
   late final double? popularity;
   late final String? releaseDate;
   late final bool? video;
@@ -43,7 +43,7 @@ class Results {
   late final int? numberOfSeasons;
   late final int? episodes;
   late final int? seasons;
-  late final bool details;
+  late final bool? details;
   late final String? firstAirDate;
 
   Results({
@@ -60,7 +60,6 @@ class Results {
     required this.mediaType,
     required this.adult,
     required this.originalLanguage,
-    required this.genreIds,
     required this.popularity,
     required this.releaseDate,
     required this.video,
@@ -71,7 +70,7 @@ class Results {
     required this.firstAirDate,
   });
 
-  Results.fromJson(Map<String, dynamic> json){
+  Results.fromJson(Map<String, dynamic> json) {
     backdropPath = json['backdrop_path'];
     id = json['id'];
     lastAirData = json['last_air_date'];
@@ -83,12 +82,11 @@ class Results {
     tagline = json['tagline'];
     posterPath = json['poster_path'];
     mediaType = json['media_type'];
-    adult = json['adult'];
+    adult = json['adult'] == 1 ? true : json['adult'] == 0 ? false : json['adult'];
     originalLanguage = json['original_language'];
-    genreIds = json['genre_ids'] == null ? [] : List.castFrom<dynamic, int>(json['genre_ids']);
     popularity = json['popularity'];
     releaseDate = json['release_date'];
-    video = json['video'];
+    video = json['video'] == 1 ? true : json['video'] == 0 ? false : json['video'];
     voteAverage = json['vote_average'];
     voteCount = json['vote_count'];
     runtime = json['runtime'];
@@ -106,4 +104,31 @@ class Results {
 
     return episodes! < 20 ? '$episodes Episodes' : '$seasons Seasons';
   }
+
+  Map<String, dynamic> toMap() {
+    return {
+      if (backdropPath != null) 'backdropPath': backdropPath,
+      if (id != null) 'id': id,
+      if (lastAirData != null) 'lastAirData': lastAirData,
+      if (name != null) 'name': name,
+      if (type != null) 'type': type,
+      if (title != null) 'title': title,
+      if (originalTitle != null) 'originalTitle': originalTitle,
+      if (overview != null) 'overview': overview,
+      if (tagline != null) 'tagline': tagline,
+      if (posterPath != null) 'posterPath': posterPath,
+      if (mediaType != null) 'mediaType': mediaType,
+      if (adult != null) 'adult': adult,
+      if (originalLanguage != null) 'originalLanguage': originalLanguage,
+      if (popularity != null) 'popularity': popularity,
+      if (releaseDate != null) 'releaseDate': releaseDate,
+      if (video != null) 'video': video,
+      if (voteAverage != null) 'voteAverage': voteAverage,
+      if (voteCount != null) 'voteCount': voteCount,
+      if (runtime != null) 'runtime': runtime,
+      if (numberOfSeasons != null) 'numberOfSeasons': numberOfSeasons,
+
+    };
+  }
+
 }
