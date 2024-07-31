@@ -1,7 +1,3 @@
-// Copyright 2014 The Flutter Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/animation.dart';
 import 'package:flutter/foundation.dart';
 
@@ -42,17 +38,17 @@ abstract class ViewportOffset extends ChangeNotifier {
   void jumpTo(double pixels);
 
   Future<void> animateTo(
-      double to, {
-        required Duration duration,
-        required Curve curve,
-      });
+    double to, {
+    required Duration duration,
+    required Curve curve,
+  });
 
   Future<void> moveTo(
-      double to, {
-        Duration? duration,
-        Curve? curve,
-        bool? clamp,
-      }) {
+    double to, {
+    Duration? duration,
+    Curve? curve,
+    bool? clamp,
+  }) {
     if (duration == null || duration == Duration.zero) {
       jumpTo(to);
       return Future<void>.value();
@@ -60,7 +56,9 @@ abstract class ViewportOffset extends ChangeNotifier {
       return animateTo(to, duration: duration, curve: curve ?? Curves.ease);
     }
   }
+
   ScrollDirection get userScrollDirection;
+
   bool get allowImplicitScrolling;
 
   @override
@@ -80,6 +78,7 @@ abstract class ViewportOffset extends ChangeNotifier {
 
 class FixedViewportOffset extends ViewportOffset {
   FixedViewportOffset(this._pixels);
+
   FixedViewportOffset.zero() : _pixels = 0.0;
 
   double _pixels;
@@ -94,7 +93,8 @@ class FixedViewportOffset extends ViewportOffset {
   bool applyViewportDimension(double viewportDimension) => true;
 
   @override
-  bool applyContentDimensions(double minScrollExtent, double maxScrollExtent) => true;
+  bool applyContentDimensions(double minScrollExtent, double maxScrollExtent) =>
+      true;
 
   @override
   void correctBy(double correction) {
@@ -108,10 +108,10 @@ class FixedViewportOffset extends ViewportOffset {
 
   @override
   Future<void> animateTo(
-      double to, {
-        required Duration duration,
-        required Curve curve,
-      }) async { }
+    double to, {
+    required Duration duration,
+    required Curve curve,
+  }) async {}
 
   @override
   ScrollDirection get userScrollDirection => ScrollDirection.idle;

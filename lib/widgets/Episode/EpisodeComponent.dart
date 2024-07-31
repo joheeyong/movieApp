@@ -1,4 +1,4 @@
-// ignore_for_file: empty_catches
+// ignore_for_file: empty_catches, deprecated_member_use
 
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';

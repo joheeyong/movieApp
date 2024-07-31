@@ -33,7 +33,6 @@ class TrandWidget extends StatelessWidget {
             movieTrend = context.watch<HomeViewModel>().movieTVDay;
             title = "TV 영화추천";
           default:
-            print("none");
         }
 
         return Column(

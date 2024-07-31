@@ -1,5 +1,6 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
 import '../model/movie.dart';
 import '../util/var.dart';
 import 'NetflixBottomSheet.dart';

@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, non_constant_identifier_names
 
 import 'dart:math';
 
@@ -8,7 +8,7 @@ import 'package:examproject1/model/movie.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewModel extends ChangeNotifier {
-  int random= 0;
+  int random = 0;
 
   Movie? movieDiscover;
   Movie? movieAllWeek;
@@ -18,12 +18,9 @@ class HomeViewModel extends ChangeNotifier {
   Movie? DiscoverTV;
   Movie? DiscoverMovie;
 
-
   callDiscover() async {
     movieDiscover = await APIInterface().getDiscover();
-    random = Random().nextInt(movieDiscover!
-        .results
-        .length);
+    random = Random().nextInt(movieDiscover!.results.length);
     notifyListeners();
   }
 

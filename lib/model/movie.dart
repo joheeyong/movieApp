@@ -75,18 +75,26 @@ class Results {
     id = json['id'];
     lastAirData = json['last_air_date'];
     name = json['name'];
-    type = json['media_type'] == null ? "movie" : json['media_type'];
+    type = json['media_type'] ?? "movie";
     title = json['title'];
     originalTitle = json['original_title'];
     overview = json['overview'];
     tagline = json['tagline'];
     posterPath = json['poster_path'];
     mediaType = json['media_type'];
-    adult = json['adult'] == 1 ? true : json['adult'] == 0 ? false : json['adult'];
+    adult = json['adult'] == 1
+        ? true
+        : json['adult'] == 0
+            ? false
+            : json['adult'];
     originalLanguage = json['original_language'];
     popularity = json['popularity'];
     releaseDate = json['release_date'];
-    video = json['video'] == 1 ? true : json['video'] == 0 ? false : json['video'];
+    video = json['video'] == 1
+        ? true
+        : json['video'] == 0
+            ? false
+            : json['video'];
     voteAverage = json['vote_average'];
     voteCount = json['vote_count'];
     runtime = json['runtime'];
@@ -127,8 +135,6 @@ class Results {
       if (voteCount != null) 'voteCount': voteCount,
       if (runtime != null) 'runtime': runtime,
       if (numberOfSeasons != null) 'numberOfSeasons': numberOfSeasons,
-
     };
   }
-
 }

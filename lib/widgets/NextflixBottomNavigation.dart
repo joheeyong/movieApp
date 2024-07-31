@@ -1,8 +1,9 @@
+// ignore_for_file: use_build_context_synchronously, file_names
+
 import 'package:examproject1/widgets/NewAndHot/NewAndHotScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
-
 import '../viewModel/homeViewModel.dart';
 import 'DownLoad/DownLoadScreen.dart';
 
@@ -27,7 +28,6 @@ class NextflixBottomNavigationState extends State<NextflixBottomNavigation> {
           activeIcon: Icon(LucideIcons.home),
           label: '홈',
         ),
-
         BottomNavigationBarItem(
           icon: Icon(LucideIcons.youtube),
           activeIcon: Icon(LucideIcons.youtube),

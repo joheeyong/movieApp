@@ -1,10 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-
 import '../model/movie.dart';
 import '../viewModel/homeViewModel.dart';
 import 'NetflixBottomSheet.dart';
@@ -14,7 +11,6 @@ class DiscoverWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Builder(builder: (context) {
       Movie? movieCover;
       movieCover = context.watch<HomeViewModel>().movieDiscover;
@@ -60,7 +56,9 @@ class DiscoverWidget extends StatelessWidget {
                     Colors.black.withOpacity(.8),
                     Colors.transparent
                   ])),
-              child: movieCover?.results[context.read<HomeViewModel>().random].posterPath != null
+              child: movieCover?.results[context.read<HomeViewModel>().random]
+                          .posterPath !=
+                      null
                   ? Image.network(
                       "http://image.tmdb.org/t/p//original/${movieCover?.results[context.read<HomeViewModel>().random].posterPath}",
                       width: double.infinity,
@@ -71,8 +69,8 @@ class DiscoverWidget extends StatelessWidget {
               bottom: 0.0,
               width: MediaQuery.of(context).size.width,
               child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 38, vertical: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 38, vertical: 16),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.max,
@@ -82,9 +80,7 @@ class DiscoverWidget extends StatelessWidget {
                         constraints: const BoxConstraints(
                             minWidth: 72.0, maxWidth: 72.0),
                         child: InkWell(
-                            onTap: () {
-
-                            },
+                            onTap: () {},
                             borderRadius: BorderRadius.circular(6.0),
                             child: const Padding(
                               padding: EdgeInsets.symmetric(
@@ -129,7 +125,19 @@ class DiscoverWidget extends StatelessWidget {
                                   ),
                                   builder: (context) {
                                     return NetflixBottomSheet(
-                                        movie: context.read<HomeViewModel>().movieDiscover!.results[context.read<HomeViewModel>().random], type: context.read<HomeViewModel>().movieDiscover!.results[0].type.toString());
+                                        movie: context
+                                                .read<HomeViewModel>()
+                                                .movieDiscover!
+                                                .results[
+                                            context
+                                                .read<HomeViewModel>()
+                                                .random],
+                                        type: context
+                                            .read<HomeViewModel>()
+                                            .movieDiscover!
+                                            .results[0]
+                                            .type
+                                            .toString());
                                   });
                             },
                             borderRadius: BorderRadius.circular(6.0),

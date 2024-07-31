@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 class NewAndHotHeaderDelegate extends SliverPersistentHeaderDelegate {
-  NewAndHotHeaderDelegate({required this.tabController, required this.scrollController,});
+  NewAndHotHeaderDelegate({
+    required this.tabController,
+    required this.scrollController,
+  });
 
   final TabController tabController;
   final ScrollController scrollController;
@@ -55,12 +58,10 @@ class NewAndHotHeaderDelegate extends SliverPersistentHeaderDelegate {
           SizedBox(
             height: 38.0,
             child: TabBar(
-              onTap: (index){
-
-                    scrollController.animateTo(tabController.index * 3001.0,
-                        curve: Curves.linear,
-                        duration: const Duration(milliseconds: 50));
-
+              onTap: (index) {
+                scrollController.animateTo(tabController.index * 3001.0,
+                    curve: Curves.linear,
+                    duration: const Duration(milliseconds: 50));
               },
               controller: tabController,
               indicatorPadding: EdgeInsets.zero,
@@ -76,55 +77,55 @@ class NewAndHotHeaderDelegate extends SliverPersistentHeaderDelegate {
               unselectedLabelColor: Colors.white,
               splashFactory: NoSplash.splashFactory,
               overlayColor: MaterialStateProperty.all(Colors.transparent),
-              tabs:[
+              tabs: [
                 Tab(
                     child: Row(
-                      children: [
-                        Image.asset(
-                          "assets/popcorn.png",
-                          width: 20.0,
-                        ),
-                        const SizedBox(
-                          width: 8.0,
-                        ),
-                        const Text(
-                          'TV프로그램   ',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    )),
+                  children: [
+                    Image.asset(
+                      "assets/popcorn.png",
+                      width: 20.0,
+                    ),
+                    const SizedBox(
+                      width: 8.0,
+                    ),
+                    const Text(
+                      'TV프로그램   ',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                )),
                 Tab(
                     child: Row(
-                      children: [
-                        Image.asset(
-                          "assets/fire.png",
-                          width: 20.0,
-                        ),
-                        const SizedBox(
-                          width: 8.0,
-                        ),
-                        const Text(
-                          '영화  ',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    )),
+                  children: [
+                    Image.asset(
+                      "assets/fire.png",
+                      width: 20.0,
+                    ),
+                    const SizedBox(
+                      width: 8.0,
+                    ),
+                    const Text(
+                      '영화  ',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                )),
                 Tab(
                     child: Row(
-                      children: [
-                        Image.asset(
-                          "assets/controller.png",
-                          width: 20.0,
-                        ),
-                        const SizedBox(
-                          width: 8.0,
-                        ),
-                        const Text(
-                          '프로그램  ',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    )),
+                  children: [
+                    Image.asset(
+                      "assets/controller.png",
+                      width: 20.0,
+                    ),
+                    const SizedBox(
+                      width: 8.0,
+                    ),
+                    const Text(
+                      '프로그램  ',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                )),
               ],
             ),
           ),

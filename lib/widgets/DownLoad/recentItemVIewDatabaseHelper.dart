@@ -1,11 +1,12 @@
+// ignore_for_file: non_constant_identifier_names, camel_case_types, depend_on_referenced_packages
+
 import 'dart:async';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import '../../model/movie.dart';
 
-//최근본상품 저장 DB
-
-final recentItemHistoryDatabaseHelper instance = recentItemHistoryDatabaseHelper._privateConstructor();
+final recentItemHistoryDatabaseHelper instance =
+    recentItemHistoryDatabaseHelper._privateConstructor();
 
 class recentItemHistoryDatabaseHelper {
   recentItemHistoryDatabaseHelper._privateConstructor();
@@ -64,31 +65,20 @@ class recentItemHistoryDatabaseHelper {
   Future<int> delete(Results product) async {
     Database db = await instance.database;
 
-    return await db.delete('recentItemHistoryC', where: "id = ?", whereArgs: [product.id]);
+    return await db
+        .delete('recentItemHistoryC', where: "id = ?", whereArgs: [product.id]);
   }
 
   Future<List<Results>> getProducts() async {
     Database db = await instance.database;
 
-    List<Map<String, Object?>> Products = await db.query('recentItemHistoryC', orderBy: 'id DESC', limit: 100, groupBy: 'id');
+    List<Map<String, Object?>> Products = await db.query('recentItemHistoryC',
+        orderBy: 'id DESC', limit: 100, groupBy: 'id');
 
-    List<Results> itemHistory =
-    Products.isNotEmpty ? Products.map((Map<String, Object?> c) => Results.fromJson(c)).toList() : [];
+    List<Results> itemHistory = Products.isNotEmpty
+        ? Products.map((Map<String, Object?> c) => Results.fromJson(c)).toList()
+        : [];
 
     return itemHistory;
   }
-  //
-  // Future<void> deleteExpiredItems() async {
-  //   Database db = await instance.database;
-  //
-  //   DateTime currentDateTime = DateTime.now();
-  //   DateTime expirationDateTime = currentDateTime.subtract(const Duration(days: 30));
-  //   String expirationTimeString = expirationDateTime.toIso8601String();
-  //
-  //   await db.delete(
-  //     'recentItemHistoryC',
-  //     where: 'date <= ?',
-  //     whereArgs: [expirationTimeString],
-  //   );
-  // }
 }

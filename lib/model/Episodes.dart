@@ -21,11 +21,14 @@ class Episodes {
   final int? seasonNumber;
   final double? voteAverage;
 
-  factory Episodes.fromJson(Map<String, dynamic> json){
+  factory Episodes.fromJson(Map<String, dynamic> json) {
     return Episodes(
       id: json["_id"],
       airDate: DateTime.tryParse(json["air_date"] ?? ""),
-      episodes: json["episodes"] == null ? [] : List<Episode>.from(json["episodes"]!.map((x) => Episode.fromJson(x))),
+      episodes: json["episodes"] == null
+          ? []
+          : List<Episode>.from(
+              json["episodes"]!.map((x) => Episode.fromJson(x))),
       name: json["name"],
       overview: json["overview"],
       episodesId: json["id"],
@@ -34,7 +37,6 @@ class Episodes {
       voteAverage: json["vote_average"],
     );
   }
-
 }
 
 class Episode {
@@ -72,7 +74,7 @@ class Episode {
   final List<dynamic> crew;
   final List<GuestStar> guestStars;
 
-  factory Episode.fromJson(Map<String, dynamic> json){
+  factory Episode.fromJson(Map<String, dynamic> json) {
     return Episode(
       airDate: DateTime.tryParse(json["air_date"] ?? ""),
       episodeNumber: json["episode_number"],
@@ -87,11 +89,15 @@ class Episode {
       stillPath: json["still_path"],
       voteAverage: json["vote_average"],
       voteCount: json["vote_count"],
-      crew: json["crew"] == null ? [] : List<dynamic>.from(json["crew"]!.map((x) => x)),
-      guestStars: json["guest_stars"] == null ? [] : List<GuestStar>.from(json["guest_stars"]!.map((x) => GuestStar.fromJson(x))),
+      crew: json["crew"] == null
+          ? []
+          : List<dynamic>.from(json["crew"]!.map((x) => x)),
+      guestStars: json["guest_stars"] == null
+          ? []
+          : List<GuestStar>.from(
+              json["guest_stars"]!.map((x) => GuestStar.fromJson(x))),
     );
   }
-
 }
 
 class GuestStar {
@@ -121,7 +127,7 @@ class GuestStar {
   final double? popularity;
   final String? profilePath;
 
-  factory GuestStar.fromJson(Map<String, dynamic> json){
+  factory GuestStar.fromJson(Map<String, dynamic> json) {
     return GuestStar(
       character: json["character"],
       creditId: json["credit_id"],
@@ -136,5 +142,4 @@ class GuestStar {
       profilePath: json["profile_path"],
     );
   }
-
 }

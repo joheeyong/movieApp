@@ -1,11 +1,9 @@
-// ignore_for_file: unrelated_type_equality_checks
+// ignore_for_file: unrelated_type_equality_checks, non_constant_identifier_names
 
 import 'dart:math';
-
 import 'package:examproject1/widgets/NewAndHot/viewportOffset.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../model/movie.dart';
 import '../../viewModel/homeViewModel.dart';
 import 'NewAndHotHeaderDelegate.dart';
@@ -31,24 +29,23 @@ class _NewAndHotScreenState extends State<NewAndHotScreen>
       }
     });
 
-  late final TabController tabController =
-      TabController(length: 3, vsync: this)
-        ..addListener(() {
-          if (tabController.indexIsChanging &&
-              scrollController.position.userScrollDirection ==
-                  ScrollDirection.idle) {
-            var offset = scrollController.offset,
-                minRange = offset - 300,
-                maxRange = offset + 300,
-                offsetTo = tabController.index * 3000.0;
+  late final TabController tabController = TabController(length: 3, vsync: this)
+    ..addListener(() {
+      if (tabController.indexIsChanging &&
+          scrollController.position.userScrollDirection ==
+              ScrollDirection.idle) {
+        var offset = scrollController.offset,
+            minRange = offset - 300,
+            maxRange = offset + 300,
+            offsetTo = tabController.index * 3000.0;
 
-            if (!(minRange <= offsetTo && maxRange >= offsetTo)) {
-              scrollController.animateTo(tabController.index * 3000.0,
-                  curve: Curves.linear,
-                  duration: const Duration(milliseconds: 1000));
-            }
-          }
-        });
+        if (!(minRange <= offsetTo && maxRange >= offsetTo)) {
+          scrollController.animateTo(tabController.index * 3000.0,
+              curve: Curves.linear,
+              duration: const Duration(milliseconds: 1000));
+        }
+      }
+    });
 
   @override
   void initState() {
