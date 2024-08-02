@@ -30,6 +30,8 @@ class APIInterface {
         Uri.parse('${baseUrl}/$type/$id?api_key=${apiKey}&language=ko-KR'));
     var body = jsonDecode(utf8.decode(result.bodyBytes));
 
+    print('${baseUrl}/$type/$id?api_key=${apiKey}&language=ko-KR');
+
     return Results.fromJson(body);
   }
 

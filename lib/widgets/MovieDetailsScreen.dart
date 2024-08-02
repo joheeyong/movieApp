@@ -39,13 +39,16 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
   }
 
   setSQLite() async {
+    print(widget.type);
     await instance.delete(Results(
       backdropPath: widget.movie.backdropPath,
       id: widget.movie.id,
       lastAirData: widget.movie.lastAirData,
       name: widget.movie.name,
-      type: widget.movie.type,
-      title: widget.movie.title,
+      type: widget.type,
+      title:  widget.movie.title.toString() == "null"
+          ? widget.movie.name.toString()
+          : widget.movie.title.toString(),
       originalTitle: widget.movie.originalTitle,
       overview: widget.movie.overview,
       tagline: widget.movie.tagline,
@@ -68,8 +71,10 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
       id: widget.movie.id,
       lastAirData: widget.movie.lastAirData,
       name: widget.movie.name,
-      type: widget.movie.type,
-      title: widget.movie.title,
+      type: widget.type,
+      title:  widget.movie.title.toString() == "null"
+          ? widget.movie.name.toString()
+          : widget.movie.title.toString(),
       originalTitle: widget.movie.originalTitle,
       overview: widget.movie.overview,
       tagline: widget.movie.tagline,
@@ -86,6 +91,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
       numberOfSeasons: widget.movie.numberOfSeasons,
       firstAirDate: widget.movie.firstAirDate,
     ));
+
   }
 
   @override

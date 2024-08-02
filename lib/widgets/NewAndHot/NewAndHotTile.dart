@@ -21,12 +21,14 @@ class NewAndHotTile extends StatelessWidget {
     return InkWell(
       onTap: () async {
         Results detailResult =
-            await context.read<HomeViewModel>().movieDetail(movie.id, type);
+            await context.read<HomeViewModel>().movieDetail(movie.id, "movie");
+        if(detailResult.overview != null) {
+
         Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (BuildContext context) =>
-                    MovieDetailsScreen(movie: detailResult, type: type)));
+                    MovieDetailsScreen(movie: detailResult, type: type)));}
       },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,7 +40,9 @@ class NewAndHotTile extends StatelessWidget {
               Text(
                 movie.firstAirDate != null
                     ? "${dateFormat.parse(movie.firstAirDate.toString()).month.toString().padLeft(2, '')}월"
-                    : "${dateFormat.parse(movie.releaseDate.toString()).month.toString().padLeft(2, '')}월",
+                    : movie.releaseDate != null
+                        ? "${dateFormat.parse(movie.releaseDate.toString()).month.toString().padLeft(2, '')}월"
+                        : "",
                 style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14.0,
@@ -51,11 +55,13 @@ class NewAndHotTile extends StatelessWidget {
                         .day
                         .toString()
                         .padLeft(2, '')
-                    : dateFormat
-                        .parse(movie.releaseDate.toString())
-                        .day
-                        .toString()
-                        .padLeft(2, ''),
+                    : movie.releaseDate != null
+                        ? dateFormat
+                            .parse(movie.releaseDate.toString())
+                            .day
+                            .toString()
+                            .padLeft(2, '')
+                        : "",
                 style: const TextStyle(
                     fontWeight: FontWeight.bold, fontSize: 32.0),
               )
@@ -70,51 +76,48 @@ class NewAndHotTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 CachedNetworkImage(
-                  imageUrl:
-                      "http://image.tmdb.org/t/p//original/${movie.backdropPath.toString()}",
-                  imageBuilder: (context, imageProvider) => ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image(
-                      image: imageProvider,
-                      fit: BoxFit.cover,
-                      height: 190,
-                    ),
-                  ),
-                  placeholder: (context, url) => Shimmer(
-                    gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: <Color>[
-                          Colors.grey[900]!,
-                          Colors.grey[900]!,
-                          Colors.grey[800]!,
-                          Colors.grey[900]!,
-                          Colors.grey[900]!
-                        ],
-                        stops: const <double>[
-                          0.0,
-                          0.35,
-                          0.5,
-                          0.65,
-                          1.0
-                        ]),
-                    child: Container(
-                      decoration: BoxDecoration(
+                    imageUrl:
+                        "http://image.tmdb.org/t/p//w780/${movie.backdropPath}",
+                    imageBuilder: (context, imageProvider) => ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
-                          color: Colors.black),
-                      height: 190,
-                    ),
-                  ),
-                  errorWidget: (context, url, error) => Container(
-                    height: 190,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        color: Colors.grey),
-                    child: Image.asset(
-                      'assets/netflix_symbol.png',
-                    ),
-                  ),
-                ),
+                          child: Image(
+                            image: imageProvider,
+                            fit: BoxFit.cover,
+                            height: 190,
+                          ),
+                        ),
+                    placeholder: (context, url) => Shimmer(
+                          gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: <Color>[
+                                Colors.grey[900]!,
+                                Colors.grey[900]!,
+                                Colors.grey[800]!,
+                                Colors.grey[900]!,
+                                Colors.grey[900]!
+                              ],
+                              stops: const <double>[
+                                0.0,
+                                0.35,
+                                0.5,
+                                0.65,
+                                1.0
+                              ]),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.0),
+                                color: Colors.black),
+                            height: 190,
+                          ),
+                        ),
+                    errorWidget: (context, url, error) =>
+                            Container(
+                          height: 190,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                              color: Colors.grey),
+                        ),),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [

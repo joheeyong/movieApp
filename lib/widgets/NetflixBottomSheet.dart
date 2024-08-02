@@ -32,7 +32,7 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
 
   parsingData() async {
     movie =
-        await context.read<HomeViewModel>().movieDetail(movie.id, movie.type);
+        await context.read<HomeViewModel>().movieDetail(movie.id, widget.type);
     setState(() {});
   }
 
@@ -170,7 +170,7 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
                   context,
                   MaterialPageRoute(
                       builder: (BuildContext context) =>
-                          MovieDetailsScreen(movie: movie, type: widget.type)));
+                          MovieDetailsScreen(movie: movie, type: widget.type.toString())));
             },
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

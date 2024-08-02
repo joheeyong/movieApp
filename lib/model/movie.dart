@@ -71,17 +71,17 @@ class Results {
   });
 
   Results.fromJson(Map<String, dynamic> json) {
-    backdropPath = json['backdrop_path'];
+    backdropPath = json['backdrop_path'] ?? json['backdropPath'];
     id = json['id'];
-    lastAirData = json['last_air_date'];
+    lastAirData = json['last_air_date'] ?? json['lastAirDate'];
     name = json['name'];
-    type = json['media_type'] ?? "movie";
+    type = json['media_type'] ?? json['mdeiaType'];
     title = json['title'];
-    originalTitle = json['original_title'];
+    originalTitle = json['original_title'] ?? json['originalTitle'];
     overview = json['overview'];
     tagline = json['tagline'];
-    posterPath = json['poster_path'];
-    mediaType = json['media_type'];
+    posterPath = json['poster_path'] ?? json['posterPath'];
+    mediaType = json['media_type'] ?? json['mediaType'];
     adult = json['adult'] == 1
         ? true
         : json['adult'] == 0
@@ -115,26 +115,26 @@ class Results {
 
   Map<String, dynamic> toMap() {
     return {
-      if (backdropPath != null) 'backdropPath': backdropPath,
-      if (id != null) 'id': id,
-      if (lastAirData != null) 'lastAirData': lastAirData,
-      if (name != null) 'name': name,
-      if (type != null) 'type': type,
-      if (title != null) 'title': title,
-      if (originalTitle != null) 'originalTitle': originalTitle,
-      if (overview != null) 'overview': overview,
-      if (tagline != null) 'tagline': tagline,
-      if (posterPath != null) 'posterPath': posterPath,
-      if (mediaType != null) 'mediaType': mediaType,
-      if (adult != null) 'adult': adult,
-      if (originalLanguage != null) 'originalLanguage': originalLanguage,
-      if (popularity != null) 'popularity': popularity,
-      if (releaseDate != null) 'releaseDate': releaseDate,
-      if (video != null) 'video': video,
-      if (voteAverage != null) 'voteAverage': voteAverage,
-      if (voteCount != null) 'voteCount': voteCount,
-      if (runtime != null) 'runtime': runtime,
-      if (numberOfSeasons != null) 'numberOfSeasons': numberOfSeasons,
+      'backdropPath': backdropPath,
+      'id': id,
+      'lastAirData': lastAirData,
+      'name': name,
+      'type': type,
+      'title': title,
+      'originalTitle': originalTitle,
+      'overview': overview,
+      'tagline': tagline,
+      'posterPath': posterPath,
+      'mediaType': mediaType,
+      'adult': adult,
+      'originalLanguage': originalLanguage,
+      'popularity': popularity,
+      'releaseDate': releaseDate,
+      'video': video,
+      'voteAverage': voteAverage,
+      'voteCount': voteCount,
+      'runtime': runtime,
+      'numberOfSeasons': numberOfSeasons,
     };
   }
 }

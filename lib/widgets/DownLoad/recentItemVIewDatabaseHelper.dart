@@ -28,8 +28,8 @@ class recentItemHistoryDatabaseHelper {
   Future _onCreate(Database db, int version) async {
     await db.execute('''
     CREATE TABLE recentItemHistoryC (
+      id INTEGER PRIMARY KEY,
   backdropPath TEXT,
-  id INTEGER PRIMARY KEY,
   lastAirData TEXT,
   name TEXT,
   type TEXT,
@@ -75,7 +75,9 @@ class recentItemHistoryDatabaseHelper {
     List<Map<String, Object?>> Products = await db.query('recentItemHistoryC',
         orderBy: 'id DESC', limit: 100, groupBy: 'id');
 
-    List<Results> itemHistory = Products.isNotEmpty
+    print(Products[0]);
+    List<Results> itemHistory =
+    Products.isNotEmpty
         ? Products.map((Map<String, Object?> c) => Results.fromJson(c)).toList()
         : [];
 
