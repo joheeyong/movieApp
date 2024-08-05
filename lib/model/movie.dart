@@ -75,7 +75,7 @@ class Results {
     id = json['id'];
     lastAirData = json['last_air_date'] ?? json['lastAirDate'];
     name = json['name'];
-    type = json['media_type'] ?? json['mdeiaType'];
+    type = json['media_type'] ?? json['mdeiaType'] ?? json['type'];
     title = json['title'];
     originalTitle = json['original_title'] ?? json['originalTitle'];
     overview = json['overview'];

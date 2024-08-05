@@ -21,7 +21,7 @@ class NewAndHotTile extends StatelessWidget {
     return InkWell(
       onTap: () async {
         Results detailResult =
-            await context.read<HomeViewModel>().movieDetail(movie.id, "movie");
+            await context.read<HomeViewModel>().movieDetail(movie.id, type);
         if(detailResult.overview != null) {
 
         Navigator.push(
