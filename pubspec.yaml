@@ -43,6 +43,7 @@ dependencies:
   intl: ^0.17.0
   sqflite: ^2.3.2
   firebase_core: ^3.3.0
+  in_app_review: ^2.0.9
 
 dev_dependencies:
   flutter_test:

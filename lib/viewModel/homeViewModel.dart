@@ -6,6 +6,7 @@ import 'package:examproject1/api/API.dart';
 import 'package:examproject1/model/Episodes.dart';
 import 'package:examproject1/model/movie.dart';
 import 'package:flutter/material.dart';
+import 'package:in_app_review/in_app_review.dart';
 
 class HomeViewModel extends ChangeNotifier {
   int random = 0;
@@ -19,6 +20,18 @@ class HomeViewModel extends ChangeNotifier {
   Movie? DiscoverMovie;
 
   callDiscover() async {
+    final InAppReview inAppReview = InAppReview.instance;
+
+    inAppReview.openStoreListing(appStoreId: 'appStoreId', microsoftStoreId: '');
+
+    //system reView PopUp
+    if (await inAppReview.isAvailable()) {
+      inAppReview.requestReview();
+    }
+
+    //openStore
+    inAppReview.openStoreListing(appStoreId: 'appStoreId', microsoftStoreId: '');
+
     movieDiscover = await APIInterface().getDiscover();
     random = Random().nextInt(movieDiscover!.results.length);
     notifyListeners();
