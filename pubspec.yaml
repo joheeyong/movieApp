@@ -46,6 +46,16 @@ dependencies:
   in_app_review: ^2.0.9
   wakelock_plus: ^1.2.8
   flutter_oss_licenses: ^3.0.2
+  url_launcher_ios: ^6.3.1
+  flutter_inappwebview: ^6.0.0
+
+
+dependency_overrides:
+  flutter_inappwebview_ios:
+    git:
+      url: https://github.com/andychucs/flutter_inappwebview.git
+      ref: master
+      path: flutter_inappwebview_ios
 
 dev_dependencies:
   flutter_test:
