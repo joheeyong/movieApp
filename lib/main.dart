@@ -58,7 +58,7 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   double scrollOffset = 0.0;
   Color appBarColor = Colors.transparent;
   late final ScrollController mainScrollController = ScrollController()
@@ -76,11 +76,53 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
+
+    chkSplash(); //스플래시 체크
+
     context.read<HomeViewModel>().callDiscover();
     context.read<HomeViewModel>().trendingAllWeek();
     context.read<HomeViewModel>().trendingMovieDay();
     context.read<HomeViewModel>().trendingMovieWeek();
     context.read<HomeViewModel>().trendingTVDay();
+  }
+
+  chkSplash() {
+    late AnimationController bottomPopupAniController;
+    bottomPopupAniController = BottomSheet.createAnimationController(this);
+    bottomPopupAniController.duration = const Duration(milliseconds: 0);
+    bottomPopupAniController.reverseDuration =
+        const Duration(milliseconds: 200);
+
+    Future.delayed(const Duration(microseconds: 0), () {
+      showModalBottomSheet(
+          constraints: const BoxConstraints(
+              maxWidth: double.infinity, minWidth: double.infinity),
+          barrierColor: Colors.transparent,
+          backgroundColor: Colors.white,
+          isScrollControlled: true,
+          transitionAnimationController: bottomPopupAniController,
+          enableDrag: false,
+          context: context,
+          builder: (BuildContext context) {
+            return Container(
+              color: Colors.black,
+              width: double.infinity,
+              height: double.infinity,
+              child: Image.network(
+                  width: MediaQuery.of(context).size.width >= 768
+                      ? 768
+                      : MediaQuery.of(context).size.width,
+                  height: double.infinity,
+                  'https://mblogthumb-phinf.pstatic.net/MjAyMzA1MjdfNTQg/MDAxNjg1MTU2ODg3NDE1.MxzB6FWQX651pmKTKzdId4eoVOWyNYxc5SD23H32kAUg.3cWffAt2v0H8dpB0n8WIj6DWcgotAuRwDs-imxFmFz4g.PNG.meetmeinyourd/IMG_7045.PNG?type=w800',
+                  fit: BoxFit.fitWidth),
+            );
+            // return your layout
+          });
+    });
+
+    Future.delayed(const Duration(milliseconds: 2000), () {
+      Navigator.pop(context);
+    });
   }
 
   @override
