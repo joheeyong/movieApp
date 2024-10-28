@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:examproject1/viewModel/OpenAIAPIProvider.dart';
 import 'package:examproject1/viewModel/homeViewModel.dart';
 import 'package:examproject1/widgets/NextflixBottomNavigation.dart';
 import 'package:examproject1/widgets/discoverWidget.dart';
@@ -19,6 +20,8 @@ void main() {
       providers: [
         ChangeNotifierProvider(
             create: (BuildContext context) => HomeViewModel()),
+        ChangeNotifierProvider(
+            create: (BuildContext context) => OpenAIAPIProvider()),
       ],
       child: const MyApp(),
     ),

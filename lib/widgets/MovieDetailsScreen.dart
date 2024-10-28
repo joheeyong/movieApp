@@ -3,8 +3,10 @@ import 'package:examproject1/widgets/MoreLike/MoreLikeComponent.dart';
 import 'package:examproject1/widgets/trandWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import '../model/movie.dart';
+import '../viewModel/OpenAIAPIProvider.dart';
 import 'DownLoad/recentItemVIewDatabaseHelper.dart';
 import 'Trailer/TrailerComponent.dart';
 
@@ -36,7 +38,14 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
   void initState() {
     super.initState();
     setSQLite();
+    chatCompletions();
   }
+
+  chatCompletions() async {
+    print("chatCompletions()");
+    context.read<OpenAIAPIProvider>().chatCompletions("http://image.tmdb.org/t/p//w780/${widget.movie.backdropPath}");
+  }
+
 
   setSQLite() async {
     print(widget.type);
