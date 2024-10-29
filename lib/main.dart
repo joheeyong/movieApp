@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    chkSplash(); //스플래시 체크
+    // chkSplash(); //스플래시 체크
 
     context.read<HomeViewModel>().callDiscover();
     context.read<HomeViewModel>().trendingAllWeek();

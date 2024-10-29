@@ -1,3 +1,7 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:examproject1/model/openai.dart';
 import 'package:examproject1/widgets/Episode/EpisodeComponent.dart';
 import 'package:examproject1/widgets/MoreLike/MoreLikeComponent.dart';
 import 'package:examproject1/widgets/trandWidget.dart';
@@ -42,20 +46,35 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
   }
 
   chatCompletions() async {
-    print("chatCompletions()");
-    context.read<OpenAIAPIProvider>().chatCompletions("http://image.tmdb.org/t/p//w780/${widget.movie.backdropPath}");
+    String title = widget.movie.title.toString() == "null"
+        ? widget.movie.name.toString()
+        : widget.movie.title.toString();
+
+    Openai openai = await context.read<OpenAIAPIProvider>().chatCompletions(
+        title, "http://image.tmdb.org/t/p//w780/${widget.movie.backdropPath}");
+
+    if (openai.choices[0].message?.content.toString() != "null") {
+      AwesomeDialog(
+        context: context,
+        dialogType: DialogType.success,
+        animType: AnimType.rightSlide,
+        title: title,
+        desc: openai.choices[0].message?.content.toString(),
+        btnOkText: '확인!',
+        btnOkColor: Colors.black,
+        btnOkOnPress: () {},
+      ).show();
+    }
   }
 
-
   setSQLite() async {
-    print(widget.type);
     await instance.delete(Results(
       backdropPath: widget.movie.backdropPath,
       id: widget.movie.id,
       lastAirData: widget.movie.lastAirData,
       name: widget.movie.name,
       type: widget.type,
-      title:  widget.movie.title.toString() == "null"
+      title: widget.movie.title.toString() == "null"
           ? widget.movie.name.toString()
           : widget.movie.title.toString(),
       originalTitle: widget.movie.originalTitle,
@@ -81,7 +100,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
       lastAirData: widget.movie.lastAirData,
       name: widget.movie.name,
       type: widget.type,
-      title:  widget.movie.title.toString() == "null"
+      title: widget.movie.title.toString() == "null"
           ? widget.movie.name.toString()
           : widget.movie.title.toString(),
       originalTitle: widget.movie.originalTitle,
@@ -100,7 +119,6 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
       numberOfSeasons: widget.movie.numberOfSeasons,
       firstAirDate: widget.movie.firstAirDate,
     ));
-
   }
 
   @override
@@ -279,7 +297,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
                 const SizedBox(
                   height: 4.0,
                 ),
-                Text(movie.tagline.toString(),
+                Text(movie.tagline.toString() != "null" ? movie.tagline.toString() :"",
                     style: const TextStyle(
                         fontSize: 17, fontWeight: FontWeight.w800)),
                 const SizedBox(

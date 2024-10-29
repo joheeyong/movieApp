@@ -33,7 +33,9 @@ class _MyHomePageState extends State<NetflixBottomSheet> {
   parsingData() async {
     movie =
         await context.read<HomeViewModel>().movieDetail(movie.id, widget.type);
-    setState(() {});
+    if(mounted) {
+      setState(() {});
+    }
   }
 
   @override
