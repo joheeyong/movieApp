@@ -107,16 +107,28 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           enableDrag: false,
           context: context,
           builder: (BuildContext context) {
+            // return Container(
+            //   color: Colors.black,
+            //   width: double.infinity,
+            //   height: double.infinity,
+            //   child: Image.network(
+            //       width: MediaQuery.of(context).size.width >= 768
+            //           ? 768
+            //           : MediaQuery.of(context).size.width,
+            //       height: double.infinity,
+            //       'https://mblogthumb-phinf.pstatic.net/MjAyMzA1MjdfNTQg/MDAxNjg1MTU2ODg3NDE1.MxzB6FWQX651pmKTKzdId4eoVOWyNYxc5SD23H32kAUg.3cWffAt2v0H8dpB0n8WIj6DWcgotAuRwDs-imxFmFz4g.PNG.meetmeinyourd/IMG_7045.PNG?type=w800',
+            //       fit: BoxFit.fitWidth),
+            // );
             return Container(
               color: Colors.black,
               width: double.infinity,
               height: double.infinity,
-              child: Image.network(
+              child: Image.asset(
+                'assets/netflix_logo.png',
                   width: MediaQuery.of(context).size.width >= 768
                       ? 768
                       : MediaQuery.of(context).size.width,
                   height: double.infinity,
-                  'https://mblogthumb-phinf.pstatic.net/MjAyMzA1MjdfNTQg/MDAxNjg1MTU2ODg3NDE1.MxzB6FWQX651pmKTKzdId4eoVOWyNYxc5SD23H32kAUg.3cWffAt2v0H8dpB0n8WIj6DWcgotAuRwDs-imxFmFz4g.PNG.meetmeinyourd/IMG_7045.PNG?type=w800',
                   fit: BoxFit.fitWidth),
             );
             // return your layout

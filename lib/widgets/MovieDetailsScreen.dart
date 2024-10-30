@@ -54,16 +54,18 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
         title, "http://image.tmdb.org/t/p//w780/${widget.movie.backdropPath}");
 
     if (openai.choices[0].message?.content.toString() != "null") {
-      AwesomeDialog(
-        context: context,
-        dialogType: DialogType.success,
-        animType: AnimType.rightSlide,
-        title: title,
-        desc: openai.choices[0].message?.content.toString(),
-        btnOkText: '확인!',
-        btnOkColor: Colors.black,
-        btnOkOnPress: () {},
-      ).show();
+      if (mounted) {
+        AwesomeDialog(
+          context: context,
+          dialogType: DialogType.success,
+          animType: AnimType.rightSlide,
+          title: title,
+          desc: openai.choices[0].message?.content.toString(),
+          btnOkText: '확인!',
+          btnOkColor: Colors.black,
+          btnOkOnPress: () {},
+        ).show();
+      }
     }
   }
 
@@ -244,7 +246,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
                 ),
                 Text(
                   movie.runtime.toString() == "null"
-                      ? "${movie.numberOfSeasons} Seasons"
+                      ? movie.numberOfSeasons.toString() == "null" ? "": "${movie.numberOfSeasons} Seasons"
                       : "${movie.runtime}분",
                   style: TextStyle(color: Colors.grey.shade400),
                 ),

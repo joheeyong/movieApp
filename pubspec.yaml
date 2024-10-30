@@ -43,7 +43,6 @@ dependencies:
   intl: ^0.17.0
   sqflite: ^2.3.2
   firebase_core:
-  in_app_review: ^2.0.9
   wakelock_plus:
   flutter_oss_licenses:
   url_launcher_ios: ^6.3.1
