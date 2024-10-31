@@ -53,19 +53,23 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
     Openai openai = await context.read<OpenAIAPIProvider>().chatCompletions(
         title, "http://image.tmdb.org/t/p//w780/${widget.movie.backdropPath}");
 
-    if (openai.choices[0].message?.content.toString() != "null") {
-      if (mounted) {
-        AwesomeDialog(
-          context: context,
-          dialogType: DialogType.success,
-          animType: AnimType.rightSlide,
-          title: title,
-          desc: openai.choices[0].message?.content.toString(),
-          btnOkText: '확인!',
-          btnOkColor: Colors.black,
-          btnOkOnPress: () {},
-        ).show();
+    if(openai.choices.length == 1) {
+      if (openai.choices[0].message?.content.toString() != "null") {
+        if (mounted) {
+          AwesomeDialog(
+            context: context,
+            dialogType: DialogType.success,
+            animType: AnimType.rightSlide,
+            title: title,
+            desc: openai.choices[0].message?.content.toString(),
+            btnOkText: '확인!',
+            btnOkColor: Colors.black,
+            btnOkOnPress: () {},
+          ).show();
+        }
       }
+    } else{
+      print("null");
     }
   }
 

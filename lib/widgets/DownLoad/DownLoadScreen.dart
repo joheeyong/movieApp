@@ -36,37 +36,42 @@ class DownLoadScreenState extends State<DownLoadScreen> {
                 future: instance.getProducts(),
                 builder: (BuildContext context,
                     AsyncSnapshot<List<Results>> snapshot) {
-                  if (snapshot.hasData &&
-                      snapshot.data!.length != 0) {
-                    return ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: snapshot.data!.length > 100
-                          ? 100
-                          : snapshot.data!.length,
-                      scrollDirection: Axis.vertical,
-                      itemBuilder:
-                          (BuildContext context, int index) {
-                        return NewAndHotTile(
-                            movie: snapshot.data![index],
-                            type: snapshot.data![index].type.toString());
-                      },
-                    );
+                  if (snapshot.hasData) {
+                    if (snapshot.data!.length != 0) {
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: snapshot.data!.length > 100
+                            ? 100
+                            : snapshot.data!.length,
+                        scrollDirection: Axis.vertical,
+                        itemBuilder:
+                            (BuildContext context, int index) {
+                          return NewAndHotTile(
+                              movie: snapshot.data![index],
+                              type: snapshot.data![index].type.toString());
+                        },
+                      );
+                    } else {
+                      return Container(
+                          margin: const EdgeInsets.only(top: 60),
+                          child: const Center(
+                              child: Text(
+                                "저장된 영상이 없습니다.",
+                                style: TextStyle(
+                                  height: 1.2,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18,
+                                  fontStyle: FontStyle.normal,
+                                  fontFamily: 'Helvetica',
+                                  color: Colors.white,
+                                ),
+                              )));
+                    }
                   } else {
-                    return Container(
-                        margin: const EdgeInsets.only(top: 60),
-                        child: const Center(
-                          child: Text(
-                            "저장된 영상이 없습니다.",
-                            style: TextStyle(
-                                height: 1.2,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 18,
-                                fontStyle: FontStyle.normal,
-                                fontFamily: 'Helvetica',
-                                color:Colors.white,
-                          ),
-                        )));
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
                   }
                 },
               )

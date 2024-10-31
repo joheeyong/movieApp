@@ -1,7 +1,6 @@
 // ignore_for_file: avoid_print, non_constant_identifier_names
 
 import 'dart:math';
-
 import 'package:examproject1/api/API.dart';
 import 'package:examproject1/model/Episodes.dart';
 import 'package:examproject1/model/movie.dart';
