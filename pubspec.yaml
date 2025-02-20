@@ -48,7 +48,7 @@ dependencies:
   url_launcher_ios: ^6.3.1
   flutter_inappwebview: ^6.0.0
   awesome_dialog: ^3.2.1
-  flutter_ai_toolkit: ^0.6.8
+  flutter_ai_toolkit: ^0.6.5
   win32: ^5.10.0
 
 dependency_overrides:
