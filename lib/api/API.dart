@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart' as http;
 
 import '../model/Episodes.dart';
@@ -10,6 +11,26 @@ import '../model/openai.dart';
 import '../util/var.dart';
 
 class APIInterface {
+
+  functionJsonDecode(http.Response result) async  {
+    if(result.statusCode==200){
+      return jsonDecode(utf8.decode(result.bodyBytes));
+    }else{
+      final List<ConnectivityResult> connectivityResult = await (Connectivity().checkConnectivity());
+      if (connectivityResult.contains(ConnectivityResult.mobile)) {
+      } else if (connectivityResult.contains(ConnectivityResult.wifi)) {
+      } else if (connectivityResult.contains(ConnectivityResult.ethernet)) {
+      } else if (connectivityResult.contains(ConnectivityResult.vpn)) {
+      } else if (connectivityResult.contains(ConnectivityResult.bluetooth)) {
+      } else if (connectivityResult.contains(ConnectivityResult.other)) {
+      } else if (connectivityResult.contains(ConnectivityResult.none)) {
+      }
+      print(connectivityResult.toString());
+      print("StatusFail");
+      return null;
+  }
+  }
+
   Future<Movie> getTrending(type, time) async {
     var result = await http.get(Uri.parse(
         '${baseUrl}/trending/$type/$time?api_key=${apiKey}&language=ko-KR'));
@@ -18,12 +39,26 @@ class APIInterface {
     return Movie.fromJson(body);
   }
 
-  Future<Movie> getDiscover() async {
+  Future<Movie?> getDiscover() async {
     var result = await http.get(Uri.parse(
         '${baseUrl}/discover/movie?api_key=${apiKey}&language=ko-KR'));
-    var body = jsonDecode(utf8.decode(result.bodyBytes));
 
-    return Movie.fromJson(body);
+    var body =  await functionJsonDecode(result);
+
+
+    final List<ConnectivityResult> connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult.contains(ConnectivityResult.mobile)) {
+    } else if (connectivityResult.contains(ConnectivityResult.wifi)) {
+    } else if (connectivityResult.contains(ConnectivityResult.ethernet)) {
+    } else if (connectivityResult.contains(ConnectivityResult.vpn)) {
+    } else if (connectivityResult.contains(ConnectivityResult.bluetooth)) {
+    } else if (connectivityResult.contains(ConnectivityResult.other)) {
+    } else if (connectivityResult.contains(ConnectivityResult.none)) {
+    }
+
+
+
+    return Movie.fromJson(body)!=null ? Movie.fromJson(body) : null;
   }
 
   Future<Results> getDetails(String id, String type) async {

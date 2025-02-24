@@ -30,9 +30,17 @@ class HomeViewModel extends ChangeNotifier {
     //
     // //openStore
     // inAppReview.openStoreListing(appStoreId: 'appStoreId', microsoftStoreId: '');
+    try {
+      movieDiscover = await APIInterface().getDiscover();
+      random = Random().nextInt(movieDiscover!.results.length);
+    } catch (e) {
+      print("exception");
+      print(e.toString());
+      if (movieDiscover == null) {
+        print("Toast처리 예정");
+      }
+    }
 
-    movieDiscover = await APIInterface().getDiscover();
-    random = Random().nextInt(movieDiscover!.results.length);
     notifyListeners();
   }
 
