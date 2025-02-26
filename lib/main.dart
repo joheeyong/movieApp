@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
     // chkSplash(); //스플래시 체크
 
-    context.read<HomeViewModel>().callDiscover();
+    context.read<HomeViewModel>().callDiscover(context);
     context.read<HomeViewModel>().trendingAllWeek();
     context.read<HomeViewModel>().trendingMovieDay();
     context.read<HomeViewModel>().trendingMovieWeek();

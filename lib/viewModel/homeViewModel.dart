@@ -18,7 +18,7 @@ class HomeViewModel extends ChangeNotifier {
   Movie? DiscoverTV;
   Movie? DiscoverMovie;
 
-  callDiscover() async {
+  callDiscover(context) async {
     // final InAppReview inAppReview = InAppReview.instance;
     //
     // inAppReview.openStoreListing(appStoreId: 'appStoreId', microsoftStoreId: '');
@@ -31,7 +31,7 @@ class HomeViewModel extends ChangeNotifier {
     // //openStore
     // inAppReview.openStoreListing(appStoreId: 'appStoreId', microsoftStoreId: '');
     try {
-      movieDiscover = await APIInterface().getDiscover();
+      movieDiscover = await APIInterface().getDiscover(context);
       random = Random().nextInt(movieDiscover!.results.length);
     } catch (e) {
       print("exception");
