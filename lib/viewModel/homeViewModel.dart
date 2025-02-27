@@ -19,23 +19,10 @@ class HomeViewModel extends ChangeNotifier {
   Movie? DiscoverMovie;
 
   callDiscover(context) async {
-    // final InAppReview inAppReview = InAppReview.instance;
-    //
-    // inAppReview.openStoreListing(appStoreId: 'appStoreId', microsoftStoreId: '');
-    //
-    // //system reView PopUp
-    // if (await inAppReview.isAvailable()) {
-    //   inAppReview.requestReview();
-    // }
-    //
-    // //openStore
-    // inAppReview.openStoreListing(appStoreId: 'appStoreId', microsoftStoreId: '');
     try {
       movieDiscover = await APIInterface().getDiscover(context);
       random = Random().nextInt(movieDiscover!.results.length);
     } catch (e) {
-      print("exception");
-      print(e.toString());
       if (movieDiscover == null) {
         print("Toast처리 예정");
       }

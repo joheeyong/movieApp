@@ -9,18 +9,22 @@ functionJsonDecode(http.Response result, context) async {
   if (result.statusCode == 201) {
     return jsonDecode(utf8.decode(result.bodyBytes));
   } else {
-    final List<ConnectivityResult> connectivityResult = await (Connectivity().checkConnectivity());
-    if (!connectivityResult.contains(ConnectivityResult.mobile) && !connectivityResult.contains(ConnectivityResult.wifi)) {
-      showToast(context);
+    connectivityCheck(context);
 
-
-
-      return null;
-    }
+    return null;
   }
 }
 
-showToast(context) {
+connectivityCheck(context) async {
+  final List<ConnectivityResult> connectivityResult = await Connectivity().checkConnectivity();
+  if (!connectivityResult.contains(ConnectivityResult.mobile) && !connectivityResult.contains(ConnectivityResult.wifi)) {
+    showToast("가져오지 못한 데이터가 있습니다\n네트워크 연결을 확인해주세요", context);
+  } else {
+    showToast("가져오지 못한 데이터가 있습니다\n잠시후 다시시도해주세요", context);
+  }
+}
+
+showToast(String str, context) {
   late FToast fToast;
   fToast = FToast();
   fToast.init(context);
@@ -40,7 +44,7 @@ showToast(context) {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Expanded(flex: 6, child: Text("가져오지 못한 데이터가 있습니다", textScaleFactor: 1.0, textAlign: TextAlign.start, maxLines: 5, style: TextStyle(fontSize: 14, height: 1.5, overflow: TextOverflow.ellipsis, color: Colors.white, fontStyle: FontStyle.normal))),
+            Expanded(flex: 6, child: Text(str, textAlign: TextAlign.start, maxLines: 5, style: TextStyle(fontSize: 14, height: 1.5, overflow: TextOverflow.ellipsis, color: Colors.white, fontStyle: FontStyle.normal))),
             Expanded(
                 flex: 1,
                 child: Container(
@@ -49,7 +53,7 @@ showToast(context) {
                     onTap: () {
                       fToast.removeCustomToast();
                     },
-                    child: const Text("재시도", textScaleFactor: 1.0, textAlign: TextAlign.end, style: TextStyle(fontSize: 14, overflow: TextOverflow.ellipsis, color: Color.fromRGBO(0, 179, 54, 1), fontStyle: FontStyle.normal)),
+                    child: const Text("재시도", textAlign: TextAlign.end, style: TextStyle(fontSize: 14, overflow: TextOverflow.ellipsis, color: Color.fromRGBO(0, 179, 54, 1), fontStyle: FontStyle.normal)),
                   ),
                 ))
           ],
@@ -58,19 +62,18 @@ showToast(context) {
 
   fToast.showToast(
       child: toast,
-      toastDuration: const Duration(seconds: 3),
+      toastDuration: const Duration(seconds: 10),
       positionedToastBuilder: (BuildContext context, Widget child, ToastGravity? gravity) {
         return SafeArea(
             child: Stack(
-              children: [
-                Positioned(
-                  right: 10,
-                  left: 10,
-                  bottom: 65,
-                  child: child,
-                ),
-              ],
-            ));
+          children: [
+            Positioned(
+              right: 10,
+              left: 10,
+              bottom: 65,
+              child: child,
+            ),
+          ],
+        ));
       });
-
 }
