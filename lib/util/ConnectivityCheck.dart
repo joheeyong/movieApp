@@ -6,7 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 
 functionJsonDecode(http.Response result, context) async {
-  if (result.statusCode == 201) {
+  if (result.statusCode == 200) {
     return jsonDecode(utf8.decode(result.bodyBytes));
   } else {
     connectivityCheck(context);

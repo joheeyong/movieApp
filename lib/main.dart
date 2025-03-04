@@ -5,15 +5,31 @@ import 'package:examproject1/viewModel/homeViewModel.dart';
 import 'package:examproject1/widgets/NextflixBottomNavigation.dart';
 import 'package:examproject1/widgets/discoverWidget.dart';
 import 'package:examproject1/widgets/trandWidget.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
+import 'package:firebase_vertexai/firebase_vertexai.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   WakelockPlus.enable();
+
+  try {
+    await Firebase.initializeApp();
+
+    final model =
+    FirebaseVertexAI.instance.generativeModel(model: 'gemini-2.0-flash');
+
+    final prompt = [Content.text('오늘 일자로 박스오피스 1위영화를 알려줘')];
+
+    final response = await model.generateContent(prompt);
+    print(response.text);
+  }catch(e){}
+
+
 
   runApp(
     MultiProvider(
@@ -107,18 +123,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           enableDrag: false,
           context: context,
           builder: (BuildContext context) {
-            // return Container(
-            //   color: Colors.black,
-            //   width: double.infinity,
-            //   height: double.infinity,
-            //   child: Image.network(
-            //       width: MediaQuery.of(context).size.width >= 768
-            //           ? 768
-            //           : MediaQuery.of(context).size.width,
-            //       height: double.infinity,
-            //       'https://mblogthumb-phinf.pstatic.net/MjAyMzA1MjdfNTQg/MDAxNjg1MTU2ODg3NDE1.MxzB6FWQX651pmKTKzdId4eoVOWyNYxc5SD23H32kAUg.3cWffAt2v0H8dpB0n8WIj6DWcgotAuRwDs-imxFmFz4g.PNG.meetmeinyourd/IMG_7045.PNG?type=w800',
-            //       fit: BoxFit.fitWidth),
-            // );
             return Container(
               color: Colors.black,
               width: double.infinity,
