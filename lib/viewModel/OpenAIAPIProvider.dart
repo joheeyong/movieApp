@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import '../api/API.dart';
 import '../model/openai.dart';
 
-class OpenAIAPIProvider extends ChangeNotifier {
+class OpenAIAPIProvider {
 
 
-  Future<Openai> chatCompletions(String title, String imageUrl) async {
+  static Future<Openai> chatCompletions(String title, String imageUrl) async {
     return await APIInterface().getCompletions(title, imageUrl);
   }
 

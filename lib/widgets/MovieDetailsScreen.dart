@@ -46,7 +46,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> with SingleTick
   chatCompletions() async {
     String title = widget.movie.title.toString() == "null" ? widget.movie.name.toString() : widget.movie.title.toString();
 
-    Openai openai = await context.read<OpenAIAPIProvider>().chatCompletions(title, "http://image.tmdb.org/t/p//w780/${widget.movie.backdropPath}");
+    Openai openai = await OpenAIAPIProvider.chatCompletions(title, "http://image.tmdb.org/t/p//w780/${widget.movie.backdropPath}");
 
     if (openai.choices.length == 1) {
       if (openai.choices[0].message?.content.toString() != "null") {

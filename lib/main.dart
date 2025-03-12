@@ -13,6 +13,8 @@ import 'package:provider/provider.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:firebase_vertexai/firebase_vertexai.dart';
 
+double MediaQueryHeight= 0.0;
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   WakelockPlus.enable();
@@ -36,8 +38,6 @@ Future<void> main() async {
       providers: [
         ChangeNotifierProvider(
             create: (BuildContext context) => HomeViewModel()),
-        ChangeNotifierProvider(
-            create: (BuildContext context) => OpenAIAPIProvider()),
       ],
       child: const MyApp(),
     ),
@@ -146,6 +146,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    MediaQueryHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         appBar: AppBar(
           toolbarHeight: 0,
