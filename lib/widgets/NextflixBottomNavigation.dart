@@ -2,6 +2,7 @@
 
 import 'package:examproject1/widgets/NewAndHot/NewAndHotScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import '../viewModel/homeViewModel.dart';
@@ -52,10 +53,10 @@ class NextflixBottomNavigationState extends State<NextflixBottomNavigation> {
                   builder: (BuildContext context) => const NewAndHotScreen()));
         }
         if (index == 2) {
-          Navigator.push(
+              Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (BuildContext context) => const DownLoadScreen()));
+                  builder: (BuildContext context) => const ProviderScope(child: DownLoadScreen())));
         }
       },
     );
