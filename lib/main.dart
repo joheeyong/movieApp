@@ -1,10 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:examproject1/viewModel/OpenAIAPIProvider.dart';
 import 'package:examproject1/viewModel/homeViewModel.dart';
+import 'package:examproject1/widgets/CustomMainCustomScrollView.dart';
 import 'package:examproject1/widgets/NextflixBottomNavigation.dart';
-import 'package:examproject1/widgets/discoverWidget.dart';
-import 'package:examproject1/widgets/trandWidget.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -176,21 +174,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           ),
         ),
         extendBodyBehindAppBar: true, //body 위에 appbar
-        body: CustomScrollView(
-          physics: const ClampingScrollPhysics(),
-          controller: mainScrollController,
-          slivers: [
-            SliverList(
-              delegate: SliverChildListDelegate.fixed([
-                DiscoverWidget(),
-                TrandWidget("allWeek"),
-                TrandWidget("movieDay"),
-                TrandWidget("movieWeek"),
-                TrandWidget("TVDay"),
-              ]),
-            ),
-          ],
-        ),
+        body: CustomMainCustomScrollView(mainScrollController),
         bottomNavigationBar: NextflixBottomNavigation());
   }
 }
