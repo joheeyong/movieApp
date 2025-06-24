@@ -6,6 +6,7 @@ import 'package:examproject1/widgets/MoreLike/MoreLikeComponent.dart';
 import 'package:examproject1/widgets/trandWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ai_toolkit/flutter_ai_toolkit.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
@@ -338,7 +339,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> with SingleTick
                         ),
                       ]),
                   tabController.index == 0 && widget.type == 'tv'
-                      ? EpisodeComponent(widget.movie, widget.movie.numberOfSeasons)
+                      ? ProviderScope(child: EpisodeComponent(widget.movie, widget.movie.numberOfSeasons))
                       : tabController.index == 1 && widget.type == 'tv' || tabController.index == 0 && widget.type == "movie"
                       ? const TrailerComponent()
                       : const MoreLikeComponent()

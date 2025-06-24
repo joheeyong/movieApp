@@ -35,6 +35,7 @@ class APIInterface {
   }
 
   Future<Episodes> getEpisode(String id, String type) async {
+    print('${baseUrl}/tv/$id/season/$type?api_key=$apiKey&language=ko-KR');
     var result = await http.get(Uri.parse('${baseUrl}/tv/$id/season/$type?api_key=$apiKey&language=ko-KR'));
     var body = jsonDecode(utf8.decode(result.bodyBytes));
 
