@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.5
   provider: ^6.1.2
   flutter_riverpod: ^2.6.1
+  flutter_bloc: ^9.1.1
   http: ^1.2.0
   shimmer: ^2.0.0
   lucide_icons: ^0.257.0

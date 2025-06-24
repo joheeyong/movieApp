@@ -2,10 +2,13 @@
 
 import 'package:examproject1/viewModel/homeViewModel.dart';
 import 'package:examproject1/widgets/CustomMainCustomScrollView.dart';
+import 'package:examproject1/widgets/DownLoad/BlocTest/bloc/PostBloc.dart';
+import 'package:examproject1/widgets/DownLoad/BlocTest/repository/PostRepository.dart';
 import 'package:examproject1/widgets/NextflixBottomNavigation.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
@@ -37,13 +40,14 @@ Future<void> main() async {
         ChangeNotifierProvider(
             create: (BuildContext context) => HomeViewModel()),
       ],
-      child: const MyApp(),
+      child: MyApp(),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  final PostRepository repository = PostRepository();
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +67,10 @@ class MyApp extends StatelessWidget {
                 statusBarBrightness: Brightness.dark)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: BlocProvider(
+        create: (_) => PostBloc(repository),
+        child: const MyHomePage(),
+      ),
     );
   }
 }
