@@ -26,7 +26,6 @@ Future<void> main() async {
     final prompt = [Content.text('오늘 일자로 박스오피스 1위영화를 알려줘')];
 
     final response = await model.generateContent(prompt);
-    print(response.text);
   }catch(e){}
 
 

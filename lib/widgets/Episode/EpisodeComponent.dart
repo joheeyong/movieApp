@@ -31,7 +31,6 @@ class EpisodeComponentState extends ConsumerState<EpisodeComponent> {
   }
 
   void _onSeasonSelected(int selectedSeason) {
-    print("Selected Season: $selectedSeason");
     setState(() {
       seasonNumber = selectedSeason - 1;
     });

@@ -29,13 +29,10 @@ class APIInterface {
     var result = await http.get(Uri.parse('${baseUrl}/$type/$id?api_key=${apiKey}&language=ko-KR'));
     var body = jsonDecode(utf8.decode(result.bodyBytes));
 
-    print('${baseUrl}/$type/$id?api_key=${apiKey}&language=ko-KR');
-
     return Results.fromJson(body);
   }
 
   Future<Episodes> getEpisode(String id, String type) async {
-    print('${baseUrl}/tv/$id/season/$type?api_key=$apiKey&language=ko-KR');
     var result = await http.get(Uri.parse('${baseUrl}/tv/$id/season/$type?api_key=$apiKey&language=ko-KR'));
     var body = jsonDecode(utf8.decode(result.bodyBytes));
 
@@ -50,7 +47,6 @@ class APIInterface {
   }
 
   Future<Openai> getCompletions(String title, String image) async {
-    print(image);
     var result = await http.post(Uri.parse('https://api.openai.com/v1/chat/completions'),
         headers: {'Authorization': 'Bearer + your API key', 'Content-Type': 'application/json'},
         body: jsonEncode({
@@ -69,8 +65,6 @@ class APIInterface {
           ]
         }));
     var body = jsonDecode(utf8.decode(result.bodyBytes));
-
-    print(body);
     return Openai.fromJson(body);
   }
 }

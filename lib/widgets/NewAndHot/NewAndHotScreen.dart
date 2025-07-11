@@ -34,10 +34,10 @@ class _NewAndHotScreenState extends State<NewAndHotScreen>
       if (tabController.indexIsChanging &&
           scrollController.position.userScrollDirection ==
               ScrollDirection.idle) {
-        var offset = scrollController.offset,
-            minRange = offset - 300,
-            maxRange = offset + 300,
-            offsetTo = tabController.index * 3000.0;
+        var offset = scrollController.offset;
+        var minRange = offset - 300;
+        var maxRange = offset + 300;
+        var offsetTo = tabController.index * 3000.0;
 
         if (!(minRange <= offsetTo && maxRange >= offsetTo)) {
           scrollController.animateTo(tabController.index * 3000.0,

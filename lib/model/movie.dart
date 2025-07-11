@@ -104,9 +104,9 @@ class Results {
 
   String getRuntime() {
     if (type == 'movie') {
-      var hours = runtime! / 60,
-          justHours = hours.floor(),
-          minutes = ((hours - hours.floor()) * 60).floor();
+      var hours = runtime! / 60;
+      var justHours = hours.floor();
+      var minutes = ((hours - hours.floor()) * 60).floor();
       return '${justHours > 0 ? '${justHours}h' : ''}${minutes > 0 ? '${justHours > 0 ? ' ' : ''}${minutes}m' : ''}';
     }
 
