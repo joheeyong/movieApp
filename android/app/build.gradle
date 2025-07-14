@@ -46,6 +46,7 @@ android {
         targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -61,4 +62,7 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    implementation 'io.channel:plugin-android:12.11.0'
+    implementation 'io.channel:plugin-android-fcm:12.11.0'
+}

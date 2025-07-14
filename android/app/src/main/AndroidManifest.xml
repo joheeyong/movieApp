@@ -4,8 +4,9 @@
 
     <application
         android:label="examproject1"
-        android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:name="com.example.examproject1.App"
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:exported="true"

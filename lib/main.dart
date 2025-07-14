@@ -10,6 +10,7 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'util/ChannelIO.dart';
 
 double MediaQueryHeight= 0.0;
 
@@ -92,6 +93,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+      ChannelIO.boot().then((bootStatus) =>
+      {
+        debugPrint("ChannelIO boot status: $bootStatus"),
+      });
 
     // chkSplash(); //스플래시 체크
 

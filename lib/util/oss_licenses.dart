@@ -168,7 +168,8 @@ const _args = Package(
     repository: 'https://github.com/dart-lang/args',
     authors: [],
     version: '2.5.0',
-    license: '''Copyright 2013, the Dart project authors. 
+    license: '''
+Copyright 2013, the Dart project authors. 
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -207,7 +208,8 @@ const _async = Package(
     repository: 'https://github.com/dart-lang/async',
     authors: [],
     version: '2.11.0',
-    license: '''Copyright 2015, the Dart project authors. 
+    license: '''
+Copyright 2015, the Dart project authors. 
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -246,7 +248,8 @@ const _boolean_selector = Package(
     repository: 'https://github.com/dart-lang/boolean_selector',
     authors: [],
     version: '2.1.1',
-    license: '''Copyright 2016, the Dart project authors.
+    license: '''
+Copyright 2016, the Dart project authors.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -285,7 +288,8 @@ const _cached_network_image = Package(
     homepage: 'https://github.com/Baseflow/flutter_cached_network_image',
     authors: [],
     version: '3.3.1',
-    license: '''The MIT License (MIT)
+    license: '''
+The MIT License (MIT)
 
 Copyright (c) 2018 Rene Floor
 
@@ -318,7 +322,8 @@ const _cached_network_image_platform_interface = Package(
     homepage: 'https://github.com/Baseflow/flutter_cached_network_image',
     authors: [],
     version: '4.0.0',
-    license: '''The MIT License (MIT)
+    license: '''
+The MIT License (MIT)
 
 Copyright (c) 2018 Rene Floor
 
@@ -351,7 +356,8 @@ const _cached_network_image_web = Package(
     homepage: 'https://github.com/Baseflow/flutter_cached_network_image',
     authors: [],
     version: '1.2.0',
-    license: '''The MIT License (MIT)
+    license: '''
+The MIT License (MIT)
 
 Copyright (c) 2018 Rene Floor
 
@@ -384,7 +390,8 @@ const _characters = Package(
     repository: 'https://github.com/dart-lang/characters',
     authors: [],
     version: '1.3.0',
-    license: '''Copyright 2019, the Dart project authors. 
+    license: '''
+Copyright 2019, the Dart project authors. 
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -423,7 +430,8 @@ const _clock = Package(
     repository: 'https://github.com/dart-lang/clock',
     authors: [],
     version: '1.1.1',
-    license: '''Apache License
+    license: '''
+Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 
@@ -636,7 +644,8 @@ const _collection = Package(
     repository: 'https://github.com/dart-lang/collection',
     authors: [],
     version: '1.18.0',
-    license: '''Copyright 2015, the Dart project authors. 
+    license: '''
+Copyright 2015, the Dart project authors. 
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -675,7 +684,8 @@ const _crypto = Package(
     repository: 'https://github.com/dart-lang/crypto',
     authors: [],
     version: '3.0.3',
-    license: '''Copyright 2015, the Dart project authors.
+    license: '''
+Copyright 2015, the Dart project authors.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -714,7 +724,8 @@ const _cupertino_icons = Package(
     repository: 'https://github.com/flutter/packages/tree/main/third_party/packages/cupertino_icons',
     authors: [],
     version: '1.0.8',
-    license: '''The MIT License (MIT)
+    license: '''
+The MIT License (MIT)
 
 Copyright (c) 2016 Vladimir Kharlampidi
 
@@ -747,7 +758,8 @@ const _dart_pubspec_licenses = Package(
     repository: 'https://github.com/espresso3389/flutter_oss_licenses',
     authors: [],
     version: '3.0.1',
-    license: '''MIT License
+    license: '''
+MIT License
 
 Copyright (c) 2019 Takashi Kawasaki
 
@@ -780,7 +792,8 @@ const _dbus = Package(
     homepage: 'https://github.com/canonical/dbus.dart',
     authors: [],
     version: '0.7.10',
-    license: '''Mozilla Public License Version 2.0
+    license: '''
+Mozilla Public License Version 2.0
 ==================================
 
 1. Definitions
@@ -1165,7 +1178,8 @@ const _fake_async = Package(
     repository: 'https://github.com/dart-lang/fake_async',
     authors: [],
     version: '1.3.1',
-    license: '''Apache License
+    license: '''
+Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 
@@ -1378,7 +1392,8 @@ const _ffi = Package(
     repository: 'https://github.com/dart-lang/native/tree/main/pkgs/ffi',
     authors: [],
     version: '2.1.3',
-    license: '''Copyright 2019, the Dart project authors. 
+    license: '''
+Copyright 2019, the Dart project authors. 
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -1417,7 +1432,8 @@ const _file = Package(
     repository: 'https://github.com/google/file.dart/tree/master/packages/file',
     authors: [],
     version: '7.0.0',
-    license: '''Copyright 2017, the Dart project authors. All rights reserved.
+    license: '''
+Copyright 2017, the Dart project authors. All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
 met:
@@ -1456,7 +1472,8 @@ const _firebase_core = Package(
     repository: 'https://github.com/firebase/flutterfire/tree/master/packages/firebase_core/firebase_core',
     authors: [],
     version: '3.3.0',
-    license: '''// Copyright 2017 The Chromium Authors. All rights reserved.
+    license: '''
+// Copyright 2017 The Chromium Authors. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -1496,7 +1513,8 @@ const _firebase_core_platform_interface = Package(
     repository: 'https://github.com/firebase/flutterfire/tree/master/packages/firebase_core/firebase_core_platform_interface',
     authors: [],
     version: '5.2.0',
-    license: '''// Copyright 2017 The Chromium Authors. All rights reserved.
+    license: '''
+// Copyright 2017 The Chromium Authors. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -1536,7 +1554,8 @@ const _firebase_core_web = Package(
     repository: 'https://github.com/firebase/flutterfire/tree/master/packages/firebase_core/firebase_core_web',
     authors: [],
     version: '2.17.4',
-    license: '''// Copyright 2020 The Chromium Authors. All rights reserved.
+    license: '''
+// Copyright 2020 The Chromium Authors. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -1575,7 +1594,8 @@ const _fixnum = Package(
     repository: 'https://github.com/dart-lang/fixnum',
     authors: [],
     version: '1.1.0',
-    license: '''Copyright 2014, the Dart project authors.
+    license: '''
+Copyright 2014, the Dart project authors.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -1614,7 +1634,8 @@ const _flutter = Package(
     homepage: 'https://flutter.dev',
     authors: [],
     version: '3.22.3',
-    license: '''Copyright 2014 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2014 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -1651,7 +1672,8 @@ const _flutter_cache_manager = Package(
     homepage: 'https://github.com/Baseflow/flutter_cache_manager/tree/develop/flutter_cache_manager',
     authors: [],
     version: '3.3.1',
-    license: '''The MIT License (MIT)
+    license: '''
+The MIT License (MIT)
 
 Copyright (c) 2017 Rene Floor
 
@@ -1684,7 +1706,8 @@ const _flutter_lints = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/flutter_lints',
     authors: [],
     version: '2.0.3',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -1722,7 +1745,8 @@ const _flutter_oss_licenses = Package(
     repository: 'https://github.com/espresso3389/flutter_oss_licenses',
     authors: [],
     version: '3.0.2',
-    license: '''MIT License
+    license: '''
+MIT License
 
 Copyright (c) 2019 Takashi Kawasaki
 
@@ -1755,7 +1779,8 @@ const _http = Package(
     repository: 'https://github.com/dart-lang/http/tree/master/pkgs/http',
     authors: [],
     version: '1.2.2',
-    license: '''Copyright 2014, the Dart project authors. 
+    license: '''
+Copyright 2014, the Dart project authors. 
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -1794,7 +1819,8 @@ const _http_parser = Package(
     repository: 'https://github.com/dart-lang/http_parser',
     authors: [],
     version: '4.0.2',
-    license: '''Copyright 2014, the Dart project authors. 
+    license: '''
+Copyright 2014, the Dart project authors. 
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -1834,7 +1860,8 @@ const _in_app_review = Package(
     repository: 'https://github.com/britannio/in_app_review',
     authors: [],
     version: '2.0.9',
-    license: '''MIT License
+    license: '''
+MIT License
 
 Copyright (c) 2020 Britannio Jarrett
 
@@ -1867,7 +1894,8 @@ const _in_app_review_platform_interface = Package(
     homepage: 'https://github.com/britannio/in_app_review/tree/master/in_app_review_platform_interface',
     authors: [],
     version: '2.0.5',
-    license: '''MIT License
+    license: '''
+MIT License
 
 Copyright (c) 2020 Britannio Jarrett
 
@@ -1900,7 +1928,8 @@ const _intl = Package(
     homepage: 'https://github.com/dart-lang/intl',
     authors: [],
     version: '0.17.0',
-    license: '''Copyright 2013, the Dart project authors. All rights reserved.
+    license: '''
+Copyright 2013, the Dart project authors. All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
 met:
@@ -1938,7 +1967,8 @@ const _json_annotation = Package(
     repository: 'https://github.com/google/json_serializable.dart/tree/master/json_annotation',
     authors: [],
     version: '4.9.0',
-    license: '''Copyright 2017, the Dart project authors. All rights reserved.
+    license: '''
+Copyright 2017, the Dart project authors. All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
 met:
@@ -1976,7 +2006,8 @@ const _leak_tracker = Package(
     repository: 'https://github.com/dart-lang/leak_tracker/tree/main/pkgs/leak_tracker',
     authors: [],
     version: '10.0.4',
-    license: '''Copyright 2022, the Dart project authors.
+    license: '''
+Copyright 2022, the Dart project authors.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -2015,7 +2046,8 @@ const _leak_tracker_flutter_testing = Package(
     repository: 'https://github.com/dart-lang/leak_tracker/tree/main/pkgs/leak_tracker_flutter_testing',
     authors: [],
     version: '3.0.3',
-    license: '''Copyright 2022, the Dart project authors.
+    license: '''
+Copyright 2022, the Dart project authors.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -2054,7 +2086,8 @@ const _leak_tracker_testing = Package(
     repository: 'https://github.com/dart-lang/leak_tracker/tree/main/pkgs/leak_tracker_testing',
     authors: [],
     version: '3.0.1',
-    license: '''Copyright 2022, the Dart project authors.
+    license: '''
+Copyright 2022, the Dart project authors.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -2089,12 +2122,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.''',
 /// lints 2.1.1
 const _lints = Package(
     name: 'lints',
-    description: """Official Dart lint rules. Defines the 'core' and 'recommended' set of lints suggested by the Dart team.
+    description: """
+Official Dart lint rules. Defines the 'core' and 'recommended' set of lints suggested by the Dart team.
 """,
     repository: 'https://github.com/dart-lang/lints',
     authors: [],
     version: '2.1.1',
-    license: '''Copyright 2021, the Dart project authors.
+    license: '''
+Copyright 2021, the Dart project authors.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -2134,7 +2169,8 @@ const _lucide_icons = Package(
     repository: 'https://github.com/lucide-icons/lucide',
     authors: [],
     version: '0.257.0',
-    license: '''ISC License
+    license: '''
+ISC License
 
 Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022.
 
@@ -2161,7 +2197,8 @@ const _matcher = Package(
     repository: 'https://github.com/dart-lang/matcher',
     authors: [],
     version: '0.12.16+1',
-    license: '''Copyright 2014, the Dart project authors. 
+    license: '''
+Copyright 2014, the Dart project authors. 
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -2200,7 +2237,8 @@ const _material_color_utilities = Package(
     repository: 'https://github.com/material-foundation/material-color-utilities/tree/main/dart',
     authors: [],
     version: '0.8.0',
-    license: '''Apache License
+    license: '''
+Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 
@@ -2402,7 +2440,8 @@ const _meta = Package(
     repository: 'https://github.com/dart-lang/sdk/tree/main/pkg/meta',
     authors: [],
     version: '1.12.0',
-    license: '''Copyright 2016, the Dart project authors.
+    license: '''
+Copyright 2016, the Dart project authors.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -2441,7 +2480,8 @@ const _nested = Package(
     repository: 'https://github.com/rrousselGit/nested',
     authors: [],
     version: '1.0.0',
-    license: '''MIT License
+    license: '''
+MIT License
 
 Copyright (c) 2019 Remi Rousselet
 
@@ -2474,7 +2514,8 @@ const _octo_image = Package(
     homepage: 'https://github.com/Baseflow/octo_image',
     authors: [],
     version: '2.0.0',
-    license: '''MIT License
+    license: '''
+MIT License
 
 Copyright (c) 2020 Baseflow
 
@@ -2508,7 +2549,8 @@ const _package_info_plus = Package(
     repository: 'https://github.com/fluttercommunity/plus_plugins/tree/main/packages/package_info_plus/package_info_plus',
     authors: [],
     version: '8.0.2',
-    license: '''Copyright 2017 The Chromium Authors. All rights reserved.
+    license: '''
+Copyright 2017 The Chromium Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -2548,7 +2590,8 @@ const _package_info_plus_platform_interface = Package(
     repository: 'https://github.com/fluttercommunity/plus_plugins/tree/main/packages/',
     authors: [],
     version: '3.0.1',
-    license: '''Copyright 2017 The Chromium Authors. All rights reserved.
+    license: '''
+Copyright 2017 The Chromium Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -2587,7 +2630,8 @@ const _path = Package(
     repository: 'https://github.com/dart-lang/path',
     authors: [],
     version: '1.9.0',
-    license: '''Copyright 2014, the Dart project authors. 
+    license: '''
+Copyright 2014, the Dart project authors. 
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -2626,7 +2670,8 @@ const _path_provider = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider',
     authors: [],
     version: '2.1.3',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -2663,7 +2708,8 @@ const _path_provider_android = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_android',
     authors: [],
     version: '2.2.4',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -2700,7 +2746,8 @@ const _path_provider_foundation = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_foundation',
     authors: [],
     version: '2.4.0',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -2737,7 +2784,8 @@ const _path_provider_linux = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_linux',
     authors: [],
     version: '2.2.1',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -2774,7 +2822,8 @@ const _path_provider_platform_interface = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_platform_interface',
     authors: [],
     version: '2.1.2',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -2811,7 +2860,8 @@ const _path_provider_windows = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_windows',
     authors: [],
     version: '2.3.0',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -2849,7 +2899,8 @@ const _petitparser = Package(
     repository: 'https://github.com/petitparser/dart-petitparser',
     authors: [],
     version: '6.0.2',
-    license: '''The MIT License
+    license: '''
+The MIT License
 
 Copyright (c) 2006-2023 Lukas Renggli.
 All rights reserved.
@@ -2883,7 +2934,8 @@ const _platform = Package(
     repository: 'https://github.com/dart-lang/platform',
     authors: [],
     version: '3.1.5',
-    license: '''Copyright 2017, the Dart project authors. All rights reserved.
+    license: '''
+Copyright 2017, the Dart project authors. All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
 met:
@@ -2921,7 +2973,8 @@ const _plugin_platform_interface = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/plugin_platform_interface',
     authors: [],
     version: '2.1.8',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -2958,7 +3011,8 @@ const _provider = Package(
     repository: 'https://github.com/rrousselGit/provider',
     authors: [],
     version: '6.1.2',
-    license: '''MIT License
+    license: '''
+MIT License
 
 Copyright (c) 2019 Remi Rousselet
 
@@ -2987,12 +3041,14 @@ SOFTWARE.''',
 /// rxdart 0.27.7
 const _rxdart = Package(
     name: 'rxdart',
-    description: '''RxDart is an implementation of the popular reactiveX api for asynchronous programming, leveraging the native Dart Streams api.
+    description: '''
+RxDart is an implementation of the popular reactiveX api for asynchronous programming, leveraging the native Dart Streams api.
 ''',
     repository: 'https://github.com/ReactiveX/rxdart',
     authors: [],
     version: '0.27.7',
-    license: '''Licensed under the Apache License, Version 2.0 (the "License"); you
+    license: '''
+Licensed under the Apache License, Version 2.0 (the "License"); you
 may not use this file except in compliance with the License. You may
 obtain a copy of the License at
 
@@ -3016,7 +3072,8 @@ const _shimmer = Package(
     repository: 'https://github.com/hnvn/flutter_shimmer',
     authors: [],
     version: '2.0.0',
-    license: '''Copyright 2013, the Dart project authors. All rights reserved.
+    license: '''
+Copyright 2013, the Dart project authors. All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
 met:
@@ -3054,7 +3111,8 @@ const _source_span = Package(
     repository: 'https://github.com/dart-lang/source_span',
     authors: [],
     version: '1.10.0',
-    license: '''Copyright 2014, the Dart project authors. 
+    license: '''
+Copyright 2014, the Dart project authors. 
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -3093,7 +3151,8 @@ const _sprintf = Package(
     homepage: 'https://github.com/Naddiseo/dart-sprintf',
     authors: [],
     version: '7.0.0',
-    license: '''Copyright (c) 2012, Richard Eames
+    license: '''
+Copyright (c) 2012, Richard Eames
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
@@ -3127,7 +3186,8 @@ const _sqflite = Package(
     repository: 'https://github.com/tekartik/sqflite/tree/master/sqflite',
     authors: [],
     version: '2.3.2',
-    license: '''BSD 2-Clause License
+    license: '''
+BSD 2-Clause License
 
 Copyright (c) 2019, Alexandre Roux Tekartik
 All rights reserved.
@@ -3164,7 +3224,8 @@ const _sqflite_common = Package(
     homepage: 'https://github.com/tekartik/sqflite/tree/master/sqflite_common',
     authors: [],
     version: '2.5.3',
-    license: '''BSD 2-Clause License
+    license: '''
+BSD 2-Clause License
 
 Copyright (c) 2019, Alexandre Roux Tekartik
 All rights reserved.
@@ -3201,7 +3262,8 @@ const _stack_trace = Package(
     repository: 'https://github.com/dart-lang/stack_trace',
     authors: [],
     version: '1.11.1',
-    license: '''Copyright 2014, the Dart project authors.
+    license: '''
+Copyright 2014, the Dart project authors.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -3240,7 +3302,8 @@ const _stream_channel = Package(
     repository: 'https://github.com/dart-lang/stream_channel',
     authors: [],
     version: '2.1.2',
-    license: '''Copyright 2015, the Dart project authors. 
+    license: '''
+Copyright 2015, the Dart project authors. 
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -3279,7 +3342,8 @@ const _string_scanner = Package(
     repository: 'https://github.com/dart-lang/string_scanner',
     authors: [],
     version: '1.2.0',
-    license: '''Copyright 2014, the Dart project authors. 
+    license: '''
+Copyright 2014, the Dart project authors. 
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -3318,7 +3382,8 @@ const _synchronized = Package(
     homepage: 'https://github.com/tekartik/synchronized.dart/tree/master/synchronized',
     authors: [],
     version: '3.1.0+1',
-    license: '''MIT License
+    license: '''
+MIT License
 
 Copyright (c) 2016, Alexandre Roux Tekartik.
 
@@ -3351,7 +3416,8 @@ const _term_glyph = Package(
     repository: 'https://github.com/dart-lang/term_glyph',
     authors: [],
     version: '1.2.1',
-    license: '''Copyright 2017, the Dart project authors. 
+    license: '''
+Copyright 2017, the Dart project authors. 
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -3390,7 +3456,8 @@ const _test_api = Package(
     repository: 'https://github.com/dart-lang/test/tree/master/pkgs/test_api',
     authors: [],
     version: '0.7.0',
-    license: '''Copyright 2018, the Dart project authors. 
+    license: '''
+Copyright 2018, the Dart project authors. 
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -3429,7 +3496,8 @@ const _typed_data = Package(
     repository: 'https://github.com/dart-lang/typed_data',
     authors: [],
     version: '1.3.2',
-    license: '''Copyright 2015, the Dart project authors. 
+    license: '''
+Copyright 2015, the Dart project authors. 
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -3468,7 +3536,8 @@ const _url_launcher = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher',
     authors: [],
     version: '6.3.0',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -3505,7 +3574,8 @@ const _url_launcher_android = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_android',
     authors: [],
     version: '6.3.9',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -3542,7 +3612,8 @@ const _url_launcher_ios = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_ios',
     authors: [],
     version: '6.3.1',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -3579,7 +3650,8 @@ const _url_launcher_linux = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_linux',
     authors: [],
     version: '3.2.0',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -3616,7 +3688,8 @@ const _url_launcher_macos = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_macos',
     authors: [],
     version: '3.2.0',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -3653,7 +3726,8 @@ const _url_launcher_platform_interface = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_platform_interface',
     authors: [],
     version: '2.3.2',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -3690,7 +3764,8 @@ const _url_launcher_web = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_web',
     authors: [],
     version: '2.3.3',
-    license: '''url_launcher_web
+    license: '''
+url_launcher_web
 
 Copyright 2013 The Flutter Authors. All rights reserved.
 
@@ -3933,7 +4008,8 @@ const _url_launcher_windows = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_windows',
     authors: [],
     version: '3.1.2',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -3966,12 +4042,14 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.''',
 /// uuid 4.4.2
 const _uuid = Package(
     name: 'uuid',
-    description: '''RFC4122 (v1, v4, v5, v6, v7, v8) UUID Generator and Parser for Dart
+    description: '''
+RFC4122 (v1, v4, v5, v6, v7, v8) UUID Generator and Parser for Dart
 ''',
     repository: 'https://github.com/Daegalus/dart-uuid',
     authors: [],
     version: '4.4.2',
-    license: '''Copyright (c) 2021 Yulian Kuncheff
+    license: '''
+Copyright (c) 2021 Yulian Kuncheff
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -3990,7 +4068,8 @@ const _vector_math = Package(
     repository: 'https://github.com/google/vector_math.dart',
     authors: [],
     version: '2.1.4',
-    license: '''Copyright 2015, Google Inc. All rights reserved.
+    license: '''
+Copyright 2015, Google Inc. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -4048,7 +4127,8 @@ const _vm_service = Package(
     repository: 'https://github.com/dart-lang/sdk/tree/main/pkg/vm_service',
     authors: [],
     version: '14.2.1',
-    license: '''Copyright 2015, the Dart project authors.
+    license: '''
+Copyright 2015, the Dart project authors.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -4087,7 +4167,8 @@ const _wakelock_plus = Package(
     repository: 'https://github.com/fluttercommunity/wakelock_plus/tree/main/wakelock_plus',
     authors: [],
     version: '1.2.8',
-    license: '''BSD 3-Clause License
+    license: '''
+BSD 3-Clause License
 
 Copyright (c) 2020-2023, creativecreatorormaybenot
 All rights reserved.
@@ -4128,7 +4209,8 @@ const _wakelock_plus_platform_interface = Package(
     repository: 'https://github.com/fluttercommunity/wakelock_plus/tree/main/wakelock_plus_platform_interface',
     authors: [],
     version: '1.2.1',
-    license: '''BSD 3-Clause License
+    license: '''
+BSD 3-Clause License
 
 Copyright (c) 2020-2023, creativecreatorormaybenot
 All rights reserved.
@@ -4169,7 +4251,8 @@ const _web = Package(
     repository: 'https://github.com/dart-lang/web',
     authors: [],
     version: '0.5.1',
-    license: '''Copyright 2023, the Dart project authors.
+    license: '''
+Copyright 2023, the Dart project authors.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -4203,13 +4286,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.''',
 /// win32 5.5.4
 const _win32 = Package(
     name: 'win32',
-    description: '''Access common Win32 APIs directly from Dart using FFI — no C required!
+    description: '''
+Access common Win32 APIs directly from Dart using FFI — no C required!
 ''',
     homepage: 'https://win32.pub',
     repository: 'https://github.com/halildurmus/win32',
     authors: [],
     version: '5.5.4',
-    license: '''BSD 3-Clause License
+    license: '''
+BSD 3-Clause License
 
 Copyright (c) 2024, Halil Durmus
 
@@ -4249,7 +4334,8 @@ const _xdg_directories = Package(
     repository: 'https://github.com/flutter/packages/tree/main/packages/xdg_directories',
     authors: [],
     version: '1.0.4',
-    license: '''Copyright 2013 The Flutter Authors. All rights reserved.
+    license: '''
+Copyright 2013 The Flutter Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -4286,7 +4372,8 @@ const _xml = Package(
     homepage: 'https://github.com/renggli/dart-xml',
     authors: [],
     version: '6.5.0',
-    license: '''The MIT License
+    license: '''
+The MIT License
 
 Copyright (c) 2006-2023 Lukas Renggli.
 All rights reserved.
@@ -4320,7 +4407,8 @@ const _yaml = Package(
     repository: 'https://github.com/dart-lang/yaml',
     authors: [],
     version: '3.1.2',
-    license: '''Copyright (c) 2014, the Dart project authors.
+    license: '''
+Copyright (c) 2014, the Dart project authors.
 Copyright (c) 2006, Kirill Simonov.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -4344,4 +4432,3 @@ SOFTWARE.''',
     isSdk: false,
     dependencies: [PackageRef('collection'), PackageRef('source_span'), PackageRef('string_scanner')]
   );
-
