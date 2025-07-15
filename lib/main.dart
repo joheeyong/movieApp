@@ -96,6 +96,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       ChannelIO.boot().then((bootStatus) =>
       {
         debugPrint("ChannelIO boot status: $bootStatus"),
+        ChannelIO.showChannelButton()
       });
 
     // chkSplash(); //스플래시 체크

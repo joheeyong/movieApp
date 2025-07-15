@@ -5,6 +5,11 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodChannel
+import com.zoyi.channel.plugin.android.ChannelIO
+import com.zoyi.channel.plugin.android.open.config.BootConfig
+import com.zoyi.channel.plugin.android.open.enumerate.BootStatus
+import com.zoyi.channel.plugin.android.open.model.User
+
 
 // MainActivity
 class MainActivity : FlutterActivity() {
@@ -18,19 +23,13 @@ class MainActivity : FlutterActivity() {
 
         methodChannel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)
         methodChannel?.setMethodCallHandler { call, result ->
-            // Log the method call for debugging
-            Log.d("MainActivity", "Method called: ${call.method}, Arguments: ${call.arguments}")
-            when (call.method) {
-                "boot" -> manager.boot(
-                    call.argument<HashMap<String, Any?>>("bootConfig"),
-                    result
-                )
-                "sleep" -> manager.sleep()
-                "shutdown" -> manager.shutdown()
-                "showChannelButton" -> manager.showChannelButton()
-                "showMessenger" -> manager.showMessenger(this)
-                "track" -> manager.track(call.arguments<String>())
+            val bootConfig = BootConfig.create("yourKey")
+
+            ChannelIO.boot(bootConfig) { bootStatus: BootStatus, user: User? ->
+                Log.d("ChannelIO", "Boot Status: $bootStatus")
             }
+
+            ChannelIO.showChannelButton()
         }
 
         EventChannel(

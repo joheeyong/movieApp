@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ChannelIO {
@@ -8,15 +6,14 @@ class ChannelIO {
   static const badgeChannel = const EventChannel("com.example.SampleProject/channelIO/badge");
 
   static Future<dynamic> boot() async {
-    var a;
-    debugPrint("test1");
-    a = await platform.invokeMethod("boot", {
+    var result;
+    result = await platform.invokeMethod("boot", {
       "bootConfig" : {
-        "pluginKey" : "yourPluginKey",
+        "pluginKey" : "yourKey",
         "memberId" : "flutter-test",
       },
     }) as String;
-    return a;
+    return result;
   }
 
   static void sleep() {

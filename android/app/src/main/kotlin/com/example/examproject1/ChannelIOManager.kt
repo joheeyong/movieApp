@@ -19,7 +19,7 @@ class ChannelIOManager : ChannelPluginListener {
     private var eventSink: EventChannel.EventSink? = null
 
     fun boot(bootConfig: HashMap<String, Any?>?, result: MethodChannel.Result) {
-        val bootConfig = BootConfig.create("yourPluginKey")
+        val bootConfig = BootConfig.create("yourKey")
         ChannelIO.setListener(this)
         val config: BootConfig? = BootConfig.fromJson(Gson().toJson(bootConfig))
         ChannelIO.boot(config) { bootStatus: BootStatus, user: User? ->
