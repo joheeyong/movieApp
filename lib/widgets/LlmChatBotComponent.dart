@@ -125,7 +125,6 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
           } catch (e) {}
         },
         onError: (error) {
-          print(error.toString());
         },
         onDone: () {
           isDone = true;
@@ -214,9 +213,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                                                   GestureDetector(
                                                       onTap: () {
                                                         if (isDone == false) {
-                                                          print("AI가 대화를 생성중입니다.");
                                                         } else if (messageController.text == "") {
-                                                          print("내용을 입력해주세요.");
                                                         } else {
                                                           FocusManager.instance.primaryFocus?.unfocus();
                                                           handleSendMessage();

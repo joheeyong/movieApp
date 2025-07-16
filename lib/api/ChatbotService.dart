@@ -51,8 +51,6 @@ class ChatbotService {
             'stream': true,
           });
 
-    print(body);
-
     final request = http.Request('POST', url)
       ..headers.addAll(headers)
       ..body = body;

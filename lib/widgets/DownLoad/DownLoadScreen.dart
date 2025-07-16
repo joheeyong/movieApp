@@ -1,5 +1,6 @@
 // ignore_for_file: unrelated_type_equality_checks, prefer_is_empty
 
+import 'package:examproject1/util/ChannelIO.dart';
 import 'package:examproject1/widgets/DownLoad/DownloadRiverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,7 +14,8 @@ class DownLoadScreen extends ConsumerWidget {
     final moviesAsync = ref.watch(downloadMoviesProvider);
 
     return Scaffold(
-      body: RefreshIndicator(
+
+      body: Stack(children: [RefreshIndicator(
         color: const Color.fromRGBO(153, 153, 153, 1),
         edgeOffset: 45,
         displacement: 100,
@@ -52,6 +54,23 @@ class DownLoadScreen extends ConsumerWidget {
           },
         ),
       ),
+    Align(
+    alignment: Alignment.center,
+    child:GestureDetector(
+      onTap: (){
+        ChannelIO.showMessenger();
+        // final PostRepository repository = PostRepository();
+        //
+        // Navigator.push(
+        //     context,
+        //     MaterialPageRoute(
+        //         builder: (BuildContext context) => BlocProvider(
+        //           create: (_) => PostBloc(repository),
+        //           child: const PostScreen(),
+        //         ),));
+      },
+      child: Container(padding: const EdgeInsets.all(15),width: 30, height: 30, color: Colors.green,),))
+    ],),
     );
   }
 }

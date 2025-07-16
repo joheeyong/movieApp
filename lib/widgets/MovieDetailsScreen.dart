@@ -64,8 +64,6 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> with SingleTick
           ).show();
         }
       }
-    } else {
-      print("null");
     }
   }
 

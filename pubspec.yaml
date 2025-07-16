@@ -48,7 +48,6 @@ dependencies:
   wakelock_plus:
   flutter_oss_licenses:
   url_launcher_ios: ^6.3.1
-  flutter_inappwebview: ^5.8.0
   awesome_dialog: ^3.2.1
   flutter_ai_toolkit: ^0.6.5
   win32: ^5.10.0
@@ -56,6 +55,9 @@ dependencies:
   fluttertoast: ^8.2.4
   firebase_vertexai: ^1.4.0
   flutter_widget_from_html: ^0.9.1
+  go_router: ^15.2.4
+  shared_preferences: ^2.5.3
+  lint: ^2.3.0
 
 dependency_overrides:
   flutter_inappwebview_ios:

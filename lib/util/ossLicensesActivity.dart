@@ -176,4 +176,3 @@ class LicenceDetailPage extends StatelessWidget {
     );
   }
 }
-

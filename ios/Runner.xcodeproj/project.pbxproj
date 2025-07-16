@@ -17,6 +17,8 @@
 		D8077DDE2DE4364B0037E3CA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8077DDD2DE4364B0037E3CA /* WidgetKit.framework */; };
 		D8077DE02DE4364B0037E3CA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8077DDF2DE4364B0037E3CA /* SwiftUI.framework */; };
 		D8077DF12DE4364E0037E3CA /* netpWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D8077DDC2DE4364B0037E3CA /* netpWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D8942AB82E24FAFC00118390 /* BadgeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8942AB72E24FAF200118390 /* BadgeHandler.swift */; };
+		D8942ABA2E24FB0F00118390 /* ChannelIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8942AB92E24FB0E00118390 /* ChannelIOManager.swift */; };
 		FE15C19208238A278638B2A4 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81EC041218FBC36DED2D99B3 /* Pods_Runner.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,8 @@
 		D8077DDC2DE4364B0037E3CA /* netpWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = netpWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8077DDD2DE4364B0037E3CA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		D8077DDF2DE4364B0037E3CA /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		D8942AB72E24FAF200118390 /* BadgeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeHandler.swift; sourceTree = "<group>"; };
+		D8942AB92E24FB0E00118390 /* ChannelIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelIOManager.swift; sourceTree = "<group>"; };
 		D8B1E9E72CA2869E00E3C68F /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
 		DAA5762945F0FDEA7F138C76 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,6 +205,8 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				D8942AB92E24FB0E00118390 /* ChannelIOManager.swift */,
+				D8942AB72E24FAF200118390 /* BadgeHandler.swift */,
 				D8B1E9E72CA2869E00E3C68F /* Runner.entitlements */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
@@ -376,9 +382,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -437,6 +447,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8942AB82E24FAFC00118390 /* BadgeHandler.swift in Sources */,
+				D8942ABA2E24FB0F00118390 /* ChannelIOManager.swift in Sources */,
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
 			);
